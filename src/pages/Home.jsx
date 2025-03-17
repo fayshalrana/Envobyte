@@ -1,18 +1,20 @@
 import React from "react";
 import Hero from "../components/screen/Home/Hero";
+import Services from "../components/screen/Home/Services";
+import MoreDetails from "../components/screen/Home/MoreDetails";
+import Portfolio from "../components/screen/Home/Portfolio";
+import WorkProcess from "../components/screen/Home/WorkProcess";
+import Testimonials from "../components/screen/Home/Testimonials";
 
 function Home() {
   return (
     <React.Fragment>
       <Hero />
-      <section className="pt-5">
-        <div className="container_fluid">
-          <div>
-            <h3 className="h3 text-dark max-w-[349px] mx-auto rounded">Shop Our Collections</h3>
-          </div>
-          <div className="border-[20px] border-primary w-20 h-20 rounded-complete"></div>
-        </div>
-      </section>
+      <Services />
+      <MoreDetails />
+      <Portfolio />
+      <WorkProcess />
+      <Testimonials />
     </React.Fragment>
   );
 }
