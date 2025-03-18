@@ -5,6 +5,9 @@ import MoreDetails from "../components/screen/Home/MoreDetails";
 import Portfolio from "../components/screen/Home/Portfolio";
 import WorkProcess from "../components/screen/Home/WorkProcess";
 import Testimonials from "../components/screen/Home/Testimonials";
+import TeamMembers from "../components/screen/Home/TeamMembers";
+import FAQ from "../components/screen/Home/FAQ";
+import Contact from "../components/screen/Home/Contact";
 
 function Home() {
   return (
@@ -15,6 +18,9 @@ function Home() {
       <Portfolio />
       <WorkProcess />
       <Testimonials />
+      <TeamMembers />
+      <FAQ />
+      <Contact />
     </React.Fragment>
   );
 }
