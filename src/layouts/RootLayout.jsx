@@ -5,17 +5,17 @@ import Footer from "../components/shared/Footer/Footer";
 const RootLayout = () => {
   return (
     <>
+      <main>
       <header>
         <Navbar />
       </header>
 
-      <main>
         <Outlet />
-      </main>
 
       <footer>
         <Footer />
       </footer>
+      </main>
     </>
   );
 };

@@ -1,6 +1,19 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import logo from '../../../assets/images/logo.svg'
 
 const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const menuItems = [
     { label: "HOME", path: "/" },
     { label: "SERVICE", path: "/service" },
@@ -11,12 +24,12 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-[#000033] text-white py-4">
-      <div className="container_fluid">
-        <div className="flex items-center justify-between">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-[#000033]/80 backdrop-blur-md shadow-lg' : 'bg-[#000033] px-5'
+      } text-white py-4`}>
+       <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <img src="/envobyte-logo.png" alt="Envobyte" className="h-8" />
+            <img src={logo} alt="Envobyte" className="h-8" />
           </Link>
 
           {/* Menu Items */}
@@ -25,7 +38,7 @@ const Navbar = () => {
               <Link
                 key={index}
                 to={item.path}
-                className={`text-sm font-medium hover:text-[#FF6B4B] transition-colors ${item.label === "HOME" ? "text-[#FF6B4B]" : ""
+                className={`text-sm font-medium hover:text-[#FF693B] transition-colors ${item.label === "HOME" ? "text-[#FF693B]" : ""
                   }`}
               >
                 {item.label}
@@ -36,12 +49,11 @@ const Navbar = () => {
           {/* See Pricing Button */}
           <Link
             to="/pricing"
-            className="bg-[#FF6B4B] text-white px-6 py-2 rounded hover:bg-[#ff5a37] transition-colors"
+            className="bg-[#FF693B] text-[14px] leading-5 font-[500] text-white px-[81px] py-5 rounded hover:bg-[#ff5a37] transition-colors"
           >
             See Pricing
           </Link>
         </div>
-      </div>
     </nav>
   );
 };
