@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
+import { IoIosArrowForward } from "react-icons/io";
 import portfolio1 from "../../../assets/images/portfolio/portfolio1.svg";
 import portfolio2 from "../../../assets/images/portfolio/portfolio2.svg";
 import portfolio3 from "../../../assets/images/portfolio/portfolio3.svg";
@@ -596,8 +596,8 @@ const Portfolio = () => {
                             key={tab}
                             onClick={() => handleTabClick(tab)}
                             className={`whitespace-nowrap px-3 sm:px-4 py-2 rounded transition-colors text-sm sm:text-base ${activeTab === tab
-                                    ? "text-[#0066FF] bg-[#0066FF]/10"
-                                    : "text-gray-600 hover:text-[#0066FF]"
+                                ? "text-[#0066FF] bg-[#0066FF]/10"
+                                : "text-gray-600 hover:text-[#0066FF]"
                                 }`}
                         >
                             {tab}
@@ -667,18 +667,28 @@ const Portfolio = () => {
                             <button
                                 onClick={handlePrevClick}
                                 disabled={isSliding || !canScrollPrev}
-                                className={`p-2 sm:p-3 border border-gray-300 rounded-full hover:bg-[#0066FF] hover:border-[#0066FF] hover:text-white transition-colors 
-                                    ${(!canScrollPrev || isSliding) ? 'cursor-not-allowed opacity-50' : ''}`}
+                                className={`w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-[4px] transition-all ${(!canScrollPrev || isSliding)
+                                        ? 'bg-transparent border-2 border-[#0C89FF] cursor-not-allowed'
+                                        : 'bg-[#0C89FF] hover:bg-[#0972d3]'
+                                    }`}
                             >
-                                <BsArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+                                <IoIosArrowForward
+                                    className={`w-5 h-5 sm:w-6 sm:h-6 rotate-180 ${(!canScrollPrev || isSliding) ? 'text-[#0C89FF]' : 'text-white'
+                                        }`}
+                                />
                             </button>
                             <button
                                 onClick={handleNextClick}
                                 disabled={isSliding || !canScrollNext}
-                                className={`p-2 sm:p-3 border border-gray-300 rounded-full hover:bg-[#0066FF] hover:border-[#0066FF] hover:text-white transition-colors 
-                                    ${(!canScrollNext || isSliding) ? 'cursor-not-allowed opacity-50' : ''}`}
+                                className={`w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-[4px] transition-all ${(!canScrollNext || isSliding)
+                                        ? 'bg-transparent border-2 border-[#0C89FF] cursor-not-allowed'
+                                        : 'bg-[#FF6B4B] hover:bg-[#ff5a37]'
+                                    }`}
                             >
-                                <BsArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                                <IoIosArrowForward
+                                    className={`w-5 h-5 sm:w-6 sm:h-6 ${(!canScrollNext || isSliding) ? 'text-[#0C89FF]' : 'text-white'
+                                        }`}
+                                />
                             </button>
                         </div>
                     )}

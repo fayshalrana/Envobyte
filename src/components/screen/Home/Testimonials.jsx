@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
+import { IoIosArrowForward } from "react-icons/io";
 import { AiFillStar } from "react-icons/ai";
 import { BsCheckCircleFill } from "react-icons/bs";
 import client1 from '../../../assets/images/testimoinal/client1.svg';
@@ -281,18 +281,28 @@ const Testimonials = () => {
                             <button
                                 onClick={handlePrevClick}
                                 disabled={isSliding || !canScrollPrev}
-                                className={`p-2 sm:p-3 border border-gray-300 rounded-full hover:bg-[#0066FF] hover:border-[#0066FF] hover:text-white transition-colors 
-                                    ${(!canScrollPrev || isSliding) ? 'cursor-not-allowed opacity-50' : ''}`}
+                                className={`w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-[4px] transition-all ${(!canScrollPrev || isSliding)
+                                    ? 'bg-transparent border-2 border-[#0C89FF] cursor-not-allowed'
+                                    : 'bg-[#0C89FF] hover:bg-[#0972d3]'
+                                    }`}
                             >
-                                <BsArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+                                <IoIosArrowForward
+                                    className={`w-5 h-5 sm:w-6 sm:h-6 rotate-180 ${(!canScrollPrev || isSliding) ? 'text-[#0C89FF]' : 'text-white'
+                                        }`}
+                                />
                             </button>
                             <button
                                 onClick={handleNextClick}
                                 disabled={isSliding || !canScrollNext}
-                                className={`p-2 sm:p-3 border border-gray-300 rounded-full hover:bg-[#0066FF] hover:border-[#0066FF] hover:text-white transition-colors 
-                                    ${(!canScrollNext || isSliding) ? 'cursor-not-allowed opacity-50' : ''}`}
+                                className={`w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-[4px] transition-all ${(!canScrollNext || isSliding)
+                                    ? 'bg-transparent border-2 border-[#0C89FF] cursor-not-allowed'
+                                    : 'bg-[#FF6B4B] hover:bg-[#ff5a37]'
+                                    }`}
                             >
-                                <BsArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                                <IoIosArrowForward
+                                    className={`w-5 h-5 sm:w-6 sm:h-6 ${(!canScrollNext || isSliding) ? 'text-[#0C89FF]' : 'text-white'
+                                        }`}
+                                />
                             </button>
                         </div>
                     )}
