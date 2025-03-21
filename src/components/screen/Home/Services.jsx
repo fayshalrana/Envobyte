@@ -111,9 +111,9 @@ const Services = () => {
     };
 
     return (
-        <section className="px-4 sm:px-6 lg:px-[55px] pt-8 sm:pt-12 lg:pt-[55px] pb-12 sm:pb-16 lg:pb-[85px] w-full max-w-[1790px] mx-auto bg-[#001655] relative overflow-hidden">
+        <section className="px-4 sm:px-6 lg:px-[55px] pt-8 sm:pt-12 lg:pt-[55px] pb-12 sm:pb-16 lg:pb-[85px] w-full mx-auto bg-[#001655] relative overflow-hidden">
             {/* Glowing Circle Overlay */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[450px] lg:w-[640px] h-[300px] sm:h-[450px] lg:h-[658px] rounded-full bg-[#0A3CCA99] blur-[100px] opacity-30 pointer-events-none"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[450px] lg:w-[640px] h-[300px] sm:h-[450px] lg:h-[658px] rounded-full blur-[100px] opacity-30 pointer-events-none"></div>
 
             {/* Bottom Overlay */}
             <div className="absolute bottom-0 left-0 right-0 w-full h-[120px] sm:h-[180px] lg:h-[232px] pointer-events-none">

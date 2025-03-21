@@ -596,7 +596,7 @@ const Portfolio = () => {
                             key={tab}
                             onClick={() => handleTabClick(tab)}
                             className={`whitespace-nowrap px-3 sm:px-4 py-2 rounded transition-colors text-sm sm:text-base ${activeTab === tab
-                                ? "text-[#0066FF] bg-[#0066FF]/10"
+                                ? "text-[#0066FF]"
                                 : "text-gray-600 hover:text-[#0066FF]"
                                 }`}
                         >

@@ -100,7 +100,7 @@ const WorkProcess = () => {
                                         background: 'linear-gradient(to bottom, #FF693B 0%, #001C6C 100%)'
                                     }}
                                 >
-                                    {step.id}
+                                    <h3 className="text-white text-base sm:text-lg lg:text-[20px] font-bold text-left">{step.id}</h3>
                                     <h3 className="text-white text-base sm:text-lg lg:text-[20px] font-bold text-left mt-2 sm:mt-[10px]">
                                         {step.title}
                                     </h3>
