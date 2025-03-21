@@ -12,7 +12,24 @@ const Testimonials = () => {
     const [firstRowIndex, setFirstRowIndex] = useState(0);
     const [secondRowIndex, setSecondRowIndex] = useState(0);
     const [isSliding, setIsSliding] = useState(false);
-    const itemsPerView = 3;
+
+    // Responsive items per view
+    const getItemsPerView = () => {
+        if (window.innerWidth >= 1024) return 3;
+        if (window.innerWidth >= 768) return 2;
+        return 1;
+    };
+
+    const [itemsPerView, setItemsPerView] = useState(getItemsPerView());
+
+    useEffect(() => {
+        const handleResize = () => {
+            setItemsPerView(getItemsPerView());
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const testimonials = [
         {
@@ -172,43 +189,43 @@ const Testimonials = () => {
     const canScrollPrev = firstRowIndex > 0 || secondRowIndex > getInitialSecondRowIndex(secondRow.length);
 
     const TestimonialCard = ({ testimonial }) => (
-        <div className="w-1/3 flex-shrink-0 p-[10px]">
-            <div className="bg-white rounded-[10px] p-8 relative before:absolute before:inset-[-2px] before:p-[2px] before:bg-gradient-to-b before:from-[#0A2C8C33] before:to-[#f7f7f7] before:rounded-[10px] before:-z-[1]">
+        <div className={`${itemsPerView === 3 ? 'w-1/3' : itemsPerView === 2 ? 'w-1/2' : 'w-full'
+            } flex-shrink-0 p-2 sm:p-3 lg:p-[10px]`}>
+            <div className="bg-white rounded-[10px] p-4 sm:p-6 lg:p-8 relative before:absolute before:inset-[-2px] before:p-[2px] before:bg-gradient-to-b before:from-[#0A2C8C33] before:to-[#f7f7f7] before:rounded-[10px] before:-z-[1]">
                 {/* Stars */}
-                <div className="flex gap-1 mb-4">
+                <div className="flex gap-1 mb-3 sm:mb-4">
                     {[...Array(5)].map((_, i) => (
                         <AiFillStar
                             key={i}
-                            className="text-[#4580FF]"
-                            size={20}
+                            className="text-[#4580FF] w-4 h-4 sm:w-5 sm:h-5"
                         />
                     ))}
                 </div>
 
                 {/* Review Text */}
-                <p className="text-[#424242] text-[14px] leading-[24px] mb-6">
+                <p className="text-[#424242] text-xs sm:text-sm lg:text-[14px] leading-relaxed sm:leading-[24px] mb-4 sm:mb-6">
                     "{testimonial.text}"
                 </p>
 
                 {/* User Info */}
                 <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2 sm:gap-3">
                         <img
                             src={testimonial.image}
                             alt={testimonial.name}
-                            className="w-12 h-12 rounded-full"
+                            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full"
                         />
                         <div>
-                            <h4 className="text-[#0A2C8C] text-[18px] font-[700]">
+                            <h4 className="text-[#0A2C8C] text-sm sm:text-base lg:text-[18px] font-bold">
                                 {testimonial.name}
                             </h4>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-1 sm:gap-2">
                                 <img
                                     src={testimonial.platformIcon}
                                     alt={testimonial.platform}
-                                    className="h-4"
+                                    className="h-3 sm:h-4"
                                 />
-                                <span className="text-[#666666] text-[14px]">
+                                <span className="text-[#666666] text-xs sm:text-sm lg:text-[14px]">
                                     {testimonial.platform}
                                 </span>
                             </div>
@@ -220,14 +237,14 @@ const Testimonials = () => {
     );
 
     return (
-        <section className="py-24 bg-[#ffffff]">
-            <div className="container_fluid">
+        <section className="py-12 sm:py-16 lg:py-24 bg-[#ffffff]">
+            <div className="container_fluid px-4 sm:px-6">
                 {/* Header */}
-                <div className="text-center mb-14">
-                    <span className="text-[#0C89FF] uppercase text-[16px] tracking-[0.2em] font-[600] mb-4 block">
+                <div className="text-center mb-8 sm:mb-10 lg:mb-14">
+                    <span className="text-[#0C89FF] uppercase text-sm sm:text-base lg:text-[16px] tracking-[0.2em] font-semibold mb-2 sm:mb-3 lg:mb-4 block">
                         CLIENT REVIEWS
                     </span>
-                    <h2 className="text-[#001246] text-[48px] font-[700]">
+                    <h2 className="text-[#001246] text-2xl sm:text-3xl lg:text-[48px] font-bold">
                         Our Proud Clients
                     </h2>
                 </div>
@@ -238,7 +255,7 @@ const Testimonials = () => {
                     <div
                         className="flex transition-transform duration-500 ease-in-out"
                         style={{
-                            transform: showNavigation ? `translateX(-${firstRowIndex * 33.33}%)` : 'translateX(0)',
+                            transform: showNavigation ? `translateX(-${firstRowIndex * (100 / itemsPerView)}%)` : 'translateX(0)',
                         }}
                     >
                         {firstRow.map((testimonial) => (
@@ -250,7 +267,7 @@ const Testimonials = () => {
                     <div
                         className="flex transition-transform duration-500 ease-in-out"
                         style={{
-                            transform: showNavigation ? `translateX(${secondRowIndex * 33.33}%)` : 'translateX(0)',
+                            transform: showNavigation ? `translateX(${secondRowIndex * (100 / itemsPerView)}%)` : 'translateX(0)',
                         }}
                     >
                         {secondRow.map((testimonial) => (
@@ -260,22 +277,22 @@ const Testimonials = () => {
 
                     {/* Navigation Arrows */}
                     {showNavigation && (
-                        <div className="flex justify-center gap-4 mt-12">
+                        <div className="flex justify-center gap-3 sm:gap-4 mt-8 sm:mt-10 lg:mt-12">
                             <button
                                 onClick={handlePrevClick}
                                 disabled={isSliding || !canScrollPrev}
-                                className={`p-3 border border-gray-300 rounded-full hover:bg-[#0066FF] hover:border-[#0066FF] hover:text-white transition-colors 
+                                className={`p-2 sm:p-3 border border-gray-300 rounded-full hover:bg-[#0066FF] hover:border-[#0066FF] hover:text-white transition-colors 
                                     ${(!canScrollPrev || isSliding) ? 'cursor-not-allowed opacity-50' : ''}`}
                             >
-                                <BsArrowLeft size={20} />
+                                <BsArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
                             </button>
                             <button
                                 onClick={handleNextClick}
                                 disabled={isSliding || !canScrollNext}
-                                className={`p-3 border border-gray-300 rounded-full hover:bg-[#0066FF] hover:border-[#0066FF] hover:text-white transition-colors 
+                                className={`p-2 sm:p-3 border border-gray-300 rounded-full hover:bg-[#0066FF] hover:border-[#0066FF] hover:text-white transition-colors 
                                     ${(!canScrollNext || isSliding) ? 'cursor-not-allowed opacity-50' : ''}`}
                             >
-                                <BsArrowRight size={20} />
+                                <BsArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                             </button>
                         </div>
                     )}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import member1 from '../../../assets/images/team-member/member1.svg';
 import member2 from '../../../assets/images/team-member/member2.svg';
@@ -8,7 +8,25 @@ import member4 from '../../../assets/images/team-member/member4.svg';
 const TeamMembers = () => {
     const [startIndex, setStartIndex] = useState(0);
     const [isSliding, setIsSliding] = useState(false);
-    const itemsPerView = 4;
+
+    // Responsive items per view
+    const getItemsPerView = () => {
+        if (window.innerWidth >= 1280) return 4;
+        if (window.innerWidth >= 1024) return 3;
+        if (window.innerWidth >= 640) return 2;
+        return 1;
+    };
+
+    const [itemsPerView, setItemsPerView] = useState(getItemsPerView());
+
+    useEffect(() => {
+        const handleResize = () => {
+            setItemsPerView(getItemsPerView());
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const teamMembers = [
         {
@@ -92,32 +110,36 @@ const TeamMembers = () => {
     const canScrollPrev = startIndex > 0;
 
     return (
-        <section className="pt-24 pb-[138px] bg-white">
-            <div className="container_fluid">
+        <section className="py-12 sm:py-16 lg:py-24 bg-white">
+            <div className="container_fluid px-4 sm:px-6">
                 {/* Header */}
-                <div className="text-center mb-16">
-                    <span className="text-[#0066FF] uppercase text-sm font-medium mb-4 block">
+                <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+                    <span className="text-[#0066FF] uppercase text-xs sm:text-sm font-medium mb-2 sm:mb-3 lg:mb-4 block tracking-wider">
                         EXPERIENCED TEAM
                     </span>
-                    <h2 className="text-[#000033] text-4xl font-bold mb-6">
+                    <h2 className="text-[#000033] text-2xl sm:text-3xl lg:text-4xl font-bold">
                         Our Team Members
                     </h2>
                 </div>
 
                 {/* Team Members Slider */}
-                <div className="relative overflow-hidden px-4">
+                <div className="relative overflow-hidden">
                     <div
-                        className="flex gap-[1px] transition-transform duration-500 ease-in-out"
+                        className="flex gap-4 sm:gap-6 transition-transform duration-500 ease-in-out"
                         style={{
-                            transform: showNavigation ? `translateX(-${startIndex * 25}%)` : 'translateX(0)',
+                            transform: showNavigation ? `translateX(-${startIndex * (100 / itemsPerView)}%)` : 'translateX(0)',
                         }}
                     >
                         {teamMembers.map((member) => (
                             <div
                                 key={member.id}
-                                className="w-1/4 flex-shrink-0"
+                                className={`${itemsPerView === 4 ? 'w-1/4' :
+                                        itemsPerView === 3 ? 'w-1/3' :
+                                            itemsPerView === 2 ? 'w-1/2' :
+                                                'w-full'
+                                    } flex-shrink-0 px-0 sm:px-2`}
                             >
-                                <div className="group relative overflow-hidden">
+                                <div className="group relative overflow-hidden rounded-lg shadow-lg">
                                     {/* Image */}
                                     <div className="aspect-[3/4] overflow-hidden">
                                         <img
@@ -128,11 +150,11 @@ const TeamMembers = () => {
                                     </div>
 
                                     {/* Info Box */}
-                                    <div className="absolute bottom-0 left-0 right-0 bg-[#000066] text-white p-4">
-                                        <h3 className="text-xl font-semibold mb-1">
+                                    <div className="absolute bottom-0 left-0 right-0 bg-[#000066]/90 backdrop-blur-sm text-white p-3 sm:p-4">
+                                        <h3 className="text-base sm:text-lg lg:text-xl font-semibold mb-0.5 sm:mb-1">
                                             {member.name}
                                         </h3>
-                                        <p className="text-sm opacity-90">
+                                        <p className="text-xs sm:text-sm opacity-90">
                                             {member.position}
                                         </p>
                                     </div>
@@ -143,22 +165,22 @@ const TeamMembers = () => {
 
                     {/* Navigation Arrows */}
                     {showNavigation && (
-                        <div className="flex justify-center gap-4 mt-12">
+                        <div className="flex justify-center gap-3 sm:gap-4 mt-8 sm:mt-10 lg:mt-12">
                             <button
                                 onClick={handlePrevClick}
                                 disabled={isSliding || !canScrollPrev}
-                                className={`p-3 border border-gray-300 rounded-full hover:bg-[#0066FF] hover:border-[#0066FF] hover:text-white transition-colors 
+                                className={`p-2 sm:p-3 border border-gray-300 rounded-full hover:bg-[#0066FF] hover:border-[#0066FF] hover:text-white transition-colors 
                                     ${(!canScrollPrev || isSliding) ? 'cursor-not-allowed opacity-50' : ''}`}
                             >
-                                <BsArrowLeft size={20} />
+                                <BsArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
                             </button>
                             <button
                                 onClick={handleNextClick}
                                 disabled={isSliding || !canScrollNext}
-                                className={`p-3 border border-gray-300 rounded-full hover:bg-[#0066FF] hover:border-[#0066FF] hover:text-white transition-colors 
+                                className={`p-2 sm:p-3 border border-gray-300 rounded-full hover:bg-[#0066FF] hover:border-[#0066FF] hover:text-white transition-colors 
                                     ${(!canScrollNext || isSliding) ? 'cursor-not-allowed opacity-50' : ''}`}
                             >
-                                <BsArrowRight size={20} />
+                                <BsArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                             </button>
                         </div>
                     )}

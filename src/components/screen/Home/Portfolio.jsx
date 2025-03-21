@@ -15,7 +15,24 @@ const Portfolio = () => {
     const [firstRowIndex, setFirstRowIndex] = useState(0);
     const [secondRowIndex, setSecondRowIndex] = useState(0);
     const [isSliding, setIsSliding] = useState(false);
-    const itemsPerView = 3;
+
+    // Responsive items per view
+    const getItemsPerView = () => {
+        if (window.innerWidth >= 1024) return 3;
+        if (window.innerWidth >= 768) return 2;
+        return 1;
+    };
+
+    const [itemsPerView, setItemsPerView] = useState(getItemsPerView());
+
+    useEffect(() => {
+        const handleResize = () => {
+            setItemsPerView(getItemsPerView());
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const tabs = ["UI/UX", "WEBSITE", "SEO", "LOGO DESIGN", "BANNER DESIGN", "GOOGLE ADS"];
 
@@ -549,22 +566,22 @@ const Portfolio = () => {
     const canScrollPrev = firstRowIndex > 0 || secondRowIndex > getInitialSecondRowIndex(secondRow.length);
 
     return (
-        <section className="pb-16 bg-[#F8F9FF]">
+        <section className="pb-8 sm:pb-12 lg:pb-16 bg-[#F8F9FF]">
             <div className="relative">
                 {/* Header */}
-                <div className="flex flex-col gap-4 mb-8 z-10 relative px-[55px]">
-                    <div className="flex justify-between items-center">
+                <div className="flex flex-col gap-4 mb-6 sm:mb-8 z-10 relative px-4 sm:px-6 lg:px-[55px]">
+                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0">
                         <div>
-                            <span className="text-[#0066FF] uppercase text-sm font-medium mb-2 block">
+                            <span className="text-[#0066FF] uppercase text-xs sm:text-sm font-medium mb-1 sm:mb-2 block tracking-wider">
                                 UI/UX PORTFOLIO
                             </span>
-                            <h2 className="text-[#000033] text-4xl font-bold">
+                            <h2 className="text-[#000033] text-2xl sm:text-3xl lg:text-4xl font-bold">
                                 Check Our Previous Work
                             </h2>
                         </div>
                         <Link
                             to="/portfolio"
-                            className="bg-[#FF6B4B] text-white px-6 py-2 rounded hover:bg-[#ff5a37] transition-colors"
+                            className="bg-[#FF6B4B] text-white px-4 sm:px-6 py-2 rounded hover:bg-[#ff5a37] transition-colors text-sm sm:text-base whitespace-nowrap"
                         >
                             All Portfolio
                         </Link>
@@ -573,14 +590,14 @@ const Portfolio = () => {
                 </div>
 
                 {/* Tabs */}
-                <div className="flex gap-8 mb-12 overflow-x-auto pb-4 px-[55px]">
+                <div className="flex gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-10 lg:mb-12 overflow-x-auto pb-4 px-4 sm:px-6 lg:px-[55px] scrollbar-hide">
                     {tabs.map((tab) => (
                         <button
                             key={tab}
                             onClick={() => handleTabClick(tab)}
-                            className={`whitespace-nowrap px-4 py-2 rounded transition-colors ${activeTab === tab
-                                ? "text-[#0066FF] bg-[#0066FF]/10"
-                                : "text-gray-600 hover:text-[#0066FF]"
+                            className={`whitespace-nowrap px-3 sm:px-4 py-2 rounded transition-colors text-sm sm:text-base ${activeTab === tab
+                                    ? "text-[#0066FF] bg-[#0066FF]/10"
+                                    : "text-gray-600 hover:text-[#0066FF]"
                                 }`}
                         >
                             {tab}
@@ -589,25 +606,29 @@ const Portfolio = () => {
                 </div>
 
                 {/* Portfolio Grid */}
-                <div className="relative overflow-hidden">
+                <div className="relative overflow-hidden px-4 sm:px-6 lg:px-[55px]">
                     {/* First Row */}
                     <div
-                        className="flex mb-8 transition-transform duration-500 ease-in-out"
+                        className="flex mb-4 sm:mb-6 lg:mb-8 transition-transform duration-500 ease-in-out"
                         style={{
-                            transform: showNavigation ? `translateX(-${firstRowIndex * 33.33}%)` : 'translateX(0)',
+                            transform: showNavigation ? `translateX(-${firstRowIndex * (100 / itemsPerView)}%)` : 'translateX(0)',
                         }}
                     >
                         {firstRow.map((item) => (
                             <div
                                 key={item.id}
-                                className="w-1/3 flex-shrink-0 px-2"
+                                className={`${itemsPerView === 3 ? 'w-1/3' : itemsPerView === 2 ? 'w-1/2' : 'w-full'
+                                    } flex-shrink-0 px-2 sm:px-3`}
                             >
-                                <div className="bg-white rounded-lg overflow-hidden shadow-lg">
-                                    <img
-                                        src={item.image}
-                                        alt={item.title}
-                                        className="w-full h-64 object-cover"
-                                    />
+                                <div className="bg-white rounded-lg overflow-hidden shadow-lg group">
+                                    <div className="relative">
+                                        <img
+                                            src={item.image}
+                                            alt={item.title}
+                                            className="w-full h-48 sm:h-56 lg:h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                                        />
+                                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                    </div>
                                 </div>
                             </div>
                         ))}
@@ -617,20 +638,24 @@ const Portfolio = () => {
                     <div
                         className="flex transition-transform duration-500 ease-in-out"
                         style={{
-                            transform: showNavigation ? `translateX(${secondRowIndex * 33.33}%)` : 'translateX(0)',
+                            transform: showNavigation ? `translateX(${secondRowIndex * (100 / itemsPerView)}%)` : 'translateX(0)',
                         }}
                     >
                         {secondRow.map((item) => (
                             <div
                                 key={item.id}
-                                className="w-1/3 flex-shrink-0 px-2"
+                                className={`${itemsPerView === 3 ? 'w-1/3' : itemsPerView === 2 ? 'w-1/2' : 'w-full'
+                                    } flex-shrink-0 px-2 sm:px-3`}
                             >
-                                <div className="bg-white rounded-lg overflow-hidden shadow-lg">
-                                    <img
-                                        src={item.image}
-                                        alt={item.title}
-                                        className="w-full h-64 object-cover"
-                                    />
+                                <div className="bg-white rounded-lg overflow-hidden shadow-lg group">
+                                    <div className="relative">
+                                        <img
+                                            src={item.image}
+                                            alt={item.title}
+                                            className="w-full h-48 sm:h-56 lg:h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                                        />
+                                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                    </div>
                                 </div>
                             </div>
                         ))}
@@ -638,22 +663,22 @@ const Portfolio = () => {
 
                     {/* Navigation Arrows */}
                     {showNavigation && (
-                        <div className="flex justify-center gap-4 mt-12">
+                        <div className="flex justify-center gap-3 sm:gap-4 mt-8 sm:mt-10 lg:mt-12">
                             <button
                                 onClick={handlePrevClick}
                                 disabled={isSliding || !canScrollPrev}
-                                className={`p-3 border border-gray-300 rounded-full hover:bg-[#0066FF] hover:border-[#0066FF] hover:text-white transition-colors 
+                                className={`p-2 sm:p-3 border border-gray-300 rounded-full hover:bg-[#0066FF] hover:border-[#0066FF] hover:text-white transition-colors 
                                     ${(!canScrollPrev || isSliding) ? 'cursor-not-allowed opacity-50' : ''}`}
                             >
-                                <BsArrowLeft size={20} />
+                                <BsArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
                             </button>
                             <button
                                 onClick={handleNextClick}
                                 disabled={isSliding || !canScrollNext}
-                                className={`p-3 border border-gray-300 rounded-full hover:bg-[#0066FF] hover:border-[#0066FF] hover:text-white transition-colors 
+                                className={`p-2 sm:p-3 border border-gray-300 rounded-full hover:bg-[#0066FF] hover:border-[#0066FF] hover:text-white transition-colors 
                                     ${(!canScrollNext || isSliding) ? 'cursor-not-allowed opacity-50' : ''}`}
                             >
-                                <BsArrowRight size={20} />
+                                <BsArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                             </button>
                         </div>
                     )}

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useMemo } from "react";
-import { HiOutlineArrowLeft, HiOutlineArrowRight } from "react-icons/hi";
+import { IoIosArrowForward } from "react-icons/io";
 import serviceImg1 from '../../../assets/images/service1.svg'
 import serviceImg2 from '../../../assets/images/service2.svg'
 import serviceImg from '../../../assets/images/service.svg'
@@ -10,7 +10,7 @@ const Services = () => {
     const [activeTab, setActiveTab] = useState("WEBSITE");
     const [startIndex, setStartIndex] = useState(0);
     const [isSliding, setIsSliding] = useState(false);
-    const itemsPerView = 3;
+    const itemsPerView = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
 
     const tabs = ["WEBSITE", "UI/UX", "SEO", "LOGO DESIGN", "BANNER DESIGN", "GOOGLE ADS"];
 
@@ -111,13 +111,13 @@ const Services = () => {
     };
 
     return (
-        <section className="px-[55px] pt-[55px] pb-[85px] w-full max-w-[17970px] mx-auto bg-[#001655] relative overflow-hidden">
+        <section className="px-4 sm:px-6 lg:px-[55px] pt-8 sm:pt-12 lg:pt-[55px] pb-12 sm:pb-16 lg:pb-[85px] w-full max-w-[1790px] mx-auto bg-[#001655] relative overflow-hidden">
             {/* Glowing Circle Overlay */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[640px] h-[658px] rounded-full bg-[#0A3CCA99] blur-[100px] opacity-30 pointer-events-none"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[450px] lg:w-[640px] h-[300px] sm:h-[450px] lg:h-[658px] rounded-full bg-[#0A3CCA99] blur-[100px] opacity-30 pointer-events-none"></div>
 
             {/* Bottom Overlay */}
-            <div className="absolute bottom-0 left-0 right-0 w-full h-[232px] pointer-events-none">
-                <div className="absolute inset-0  z-10"></div>
+            <div className="absolute bottom-0 left-0 right-0 w-full h-[120px] sm:h-[180px] lg:h-[232px] pointer-events-none">
+                <div className="absolute inset-0 z-10"></div>
                 <img
                     src={bottomOverlay}
                     alt=""
@@ -128,17 +128,17 @@ const Services = () => {
             {/* Content Container with relative positioning */}
             <div className="relative z-10">
                 {/* Header */}
-                <div className="flex flex-col gap-4 mb-8">
-                    <div className="flex justify-between items-center">
+                <div className="flex flex-col gap-4 mb-6 sm:mb-8">
+                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0">
                         <div>
-                            <span className="text-[#FF6B4B] uppercase text-[16px] font-[600] mb-4 block tracking-[5px]">
+                            <span className="text-[#FF6B4B] uppercase text-sm sm:text-[16px] font-semibold mb-2 sm:mb-4 block tracking-[3px] sm:tracking-[5px]">
                                 DIGITAL SERVICES
                             </span>
-                            <h2 className="text-white h3">Check Our Available Services</h2>
+                            <h2 className="text-white text-2xl sm:text-3xl lg:text-4xl font-bold">Check Our Available Services</h2>
                         </div>
                         <Link
                             to="/services"
-                            className="bg-[#FF6B4B] text-white px-[46px] py-4 rounded hover:bg-[#ff5a37] transition-colors text-[16px] font-[400]"
+                            className="bg-[#FF6B4B] text-white px-6 sm:px-[46px] py-3 sm:py-4 rounded hover:bg-[#ff5a37] transition-colors text-sm sm:text-[16px] font-medium whitespace-nowrap"
                         >
                             All Services
                         </Link>
@@ -147,12 +147,12 @@ const Services = () => {
                 </div>
 
                 {/* Tabs */}
-                <div className="flex gap-8 mb-[76px] overflow-x-auto pb-4">
+                <div className="flex gap-4 sm:gap-8 mb-8 sm:mb-12 lg:mb-[76px] overflow-x-auto pb-4 scrollbar-hide">
                     {tabs.map((tab) => (
                         <button
                             key={tab}
                             onClick={() => handleTabClick(tab)}
-                            className={`whitespace-nowrap px-4 py-2 rounded transition-colors text-[16px] font-[400] tracking-[1px] leading-3 ${activeTab === tab
+                            className={`whitespace-nowrap px-3 sm:px-4 py-2 rounded transition-colors text-sm sm:text-[16px] font-medium tracking-[1px] leading-3 ${activeTab === tab
                                 ? "text-[#0C89FF]"
                                 : "text-white hover:text-[#0C89FF]"
                                 }`}
@@ -165,33 +165,33 @@ const Services = () => {
                 {/* Service Cards Slider */}
                 <div className="relative overflow-hidden">
                     <div
-                        className="flex gap-8 transition-transform duration-500 ease-in-out"
+                        className="flex gap-4 sm:gap-6 lg:gap-8 transition-transform duration-500 ease-in-out"
                         style={{
-                            transform: showNavigation ? `translateX(-${startIndex * 33.33}%)` : 'translateX(0)',
+                            transform: `translateX(-${startIndex * (100 / itemsPerView)}%)`,
                         }}
                     >
                         {filteredServices.map((service) => (
                             <div
                                 key={service.id}
-                                className="backdrop-blur-[72px] bg-white/5 border border-white/20 text-white p-8 rounded-lg flex flex-col items-center text-center min-w-[calc(33.33%-1.33rem)] max-w-[576px]"
+                                className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-21px)] min-w-[280px] backdrop-blur-[72px] bg-white/5 border border-white/20 text-white p-6 sm:p-8 rounded-lg flex flex-col items-center text-center"
                             >
                                 <img
                                     src={service.image}
                                     alt={service.title}
-                                    className="w-[185px] h-24 mb-4"
+                                    className="w-[120px] sm:w-[150px] lg:w-[185px] h-auto sm:h-20 lg:h-24 mb-4"
                                 />
-                                <h3 className="text-[24px] text-white font-semibold mb-4">{service.title}</h3>
-                                <p className="text-white text-16px mb-6">{service.subtitle}</p>
+                                <h3 className="text-xl sm:text-2xl lg:text-[24px] text-white font-semibold mb-2 sm:mb-4">{service.title}</h3>
+                                <p className="text-white text-sm sm:text-base lg:text-[16px] mb-4 sm:mb-6">{service.subtitle}</p>
                                 <div className="flex gap-2">
                                     <Link
                                         to={`/portfolio/${service.id}`}
-                                        className="px-[36px] py-[13px] border border-transparent hover:border-[#0C89FF] rounded-full bg-[#0C89FF] hover:bg-transparent transition-colors text-white text-[14px] font-[400]"
+                                        className="px-4 sm:px-[36px] py-2 sm:py-[13px] border border-transparent hover:border-[#0C89FF] rounded-full bg-[#0C89FF] hover:bg-transparent transition-colors text-white text-xs sm:text-[14px] font-medium"
                                     >
                                         Portfolio
                                     </Link>
                                     <Link
                                         to={`/order/${service.id}`}
-                                        className="px-[23px] py-[13px] bg-transparent border border-[#0C89FF] rounded-full hover:bg-[#0C89FF] transition-colors text-[#0C89FF] hover:text-white text-[14px] font-[400]"
+                                        className="px-4 sm:px-[23px] py-2 sm:py-[13px] bg-transparent border border-[#0C89FF] rounded-full hover:bg-[#0C89FF] transition-colors text-[#0C89FF] hover:text-white text-xs sm:text-[14px] font-medium"
                                     >
                                         Order
                                     </Link>
@@ -203,29 +203,31 @@ const Services = () => {
 
                 {/* Navigation Arrows */}
                 {showNavigation && (
-                    <div className="flex justify-center gap-4 mt-12">
+                    <div className="flex justify-center gap-3 sm:gap-4 mt-8 sm:mt-12">
                         <button
                             onClick={handlePrevClick}
                             disabled={isSliding || startIndex === 0}
-                            className={`w-12 h-12 flex items-center justify-center rounded-[4px] transition-all
-                                ${(isSliding || startIndex === 0)
+                            className={`w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-[4px] transition-all ${isSliding || startIndex === 0
                                     ? 'bg-transparent border-2 border-[#0C89FF] cursor-not-allowed'
-                                    : 'bg-[#0C89FF] hover:bg-[#0972d3]'}`}
+                                    : 'bg-[#0C89FF] hover:bg-[#0972d3]'
+                                }`}
                         >
-                            <HiOutlineArrowLeft
-                                className={`w-6 h-6 ${(isSliding || startIndex === 0) ? 'text-[#0C89FF]' : 'text-white'}`}
+                            <IoIosArrowForward
+                                className={`w-5 h-5 sm:w-6 sm:h-6 rotate-180 ${isSliding || startIndex === 0 ? 'text-[#0C89FF]' : 'text-white'
+                                    }`}
                             />
                         </button>
                         <button
                             onClick={handleNextClick}
                             disabled={isSliding || startIndex >= filteredServices.length - itemsPerView}
-                            className={`w-12 h-12 flex items-center justify-center rounded-[4px] transition-all
-                                ${(isSliding || startIndex >= filteredServices.length - itemsPerView)
+                            className={`w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-[4px] transition-all ${isSliding || startIndex >= filteredServices.length - itemsPerView
                                     ? 'bg-transparent border-2 border-[#0C89FF] cursor-not-allowed'
-                                    : 'bg-[#FF6B4B] hover:bg-[#ff5a37]'}`}
+                                    : 'bg-[#FF6B4B] hover:bg-[#ff5a37]'
+                                }`}
                         >
-                            <HiOutlineArrowRight
-                                className={`w-6 h-6 ${(isSliding || startIndex >= filteredServices.length - itemsPerView) ? 'text-[#0C89FF]' : 'text-white'}`}
+                            <IoIosArrowForward
+                                className={`w-5 h-5 sm:w-6 sm:h-6 ${isSliding || startIndex >= filteredServices.length - itemsPerView ? 'text-[#0C89FF]' : 'text-white'
+                                    }`}
                             />
                         </button>
                     </div>

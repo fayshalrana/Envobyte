@@ -37,35 +37,35 @@ const FAQ = () => {
     };
 
     return (
-        <section className="pt-[52px] pb-[273px] bg-[#F8F9FF]">
-            <div className="container_fluid">
+        <section className="py-12 md:py-24 bg-[#F8F9FF]">
+            <div className="container_fluid px-4 md:px-6">
                 <div className="max-w-[938px] mx-auto">
                     {/* Header */}
-                    <h2 className="text-[#000066] text-[48px] font-bold text-center mb-[66px]">
+                    <h2 className="text-[#000066] text-2xl md:text-4xl lg:text-[48px] font-bold text-center mb-8 md:mb-12 lg:mb-[66px]">
                         Frequently Asked Questions
                     </h2>
 
                     {/* FAQ Items */}
-                    <div className="space-y-6">
+                    <div className="space-y-4 md:space-y-6">
                         {faqData.map((faq) => (
                             <div
                                 key={faq.id}
-                                className="border-b border-gray-200 overflow-hidden"
+                                className="border border-gray-200 rounded-lg overflow-hidden bg-white"
                             >
                                 {/* Question */}
                                 <button
                                     onClick={() => handleToggle(faq.id)}
-                                    className="w-full flex items-center justify-between p-5 text-left"
+                                    className="w-full flex items-start md:items-center justify-between p-4 md:p-5 text-left"
                                 >
-                                    <div className="flex items-center gap-4">
-                                        <span className="text-[#0066FF] text-[18px] font-medium">
+                                    <div className="flex items-start md:items-center gap-2 md:gap-4">
+                                        <span className="text-[#0066FF] text-base md:text-[18px] font-medium pt-1 md:pt-0">
                                             {String(faq.id).padStart(2, '0')}
                                         </span>
-                                        <h3 className={`text-[24px] font-medium ${activeIndex === faq.id ? 'text-[#0A2C8C]' : 'text-[##6D758F]'}`}>
+                                        <h3 className={`text-base sm:text-lg md:text-xl lg:text-2xl font-medium pr-4 ${activeIndex === faq.id ? 'text-[#0A2C8C]' : 'text-[#6D758F]'}`}>
                                             {faq.question}
                                         </h3>
                                     </div>
-                                    <span className="text-[#0066FF] flex-shrink-0">
+                                    <span className="text-[#0066FF] flex-shrink-0 mt-1 md:mt-0">
                                         {activeIndex === faq.id ? (
                                             <IoRemove size={20} />
                                         ) : (
@@ -76,10 +76,10 @@ const FAQ = () => {
 
                                 {/* Answer */}
                                 <div
-                                    className={`overflow-hidden transition-all duration-300 ${activeIndex === faq.id ? 'max-h-40' : 'max-h-0'
+                                    className={`overflow-hidden transition-all duration-300 ${activeIndex === faq.id ? 'max-h-[1000px]' : 'max-h-0'
                                         }`}
                                 >
-                                    <p className="p-5 pt-0 text-gray-600 text-[24px] leading-[36px]">
+                                    <p className="p-4 md:p-5 pt-0 text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed md:leading-[1.5]">
                                         {faq.answer}
                                     </p>
                                 </div>
