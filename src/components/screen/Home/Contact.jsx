@@ -28,17 +28,17 @@ const Contact = () => {
     };
 
     return (
-        <section className="py-24 bg-[#000066] relative overflow-hidden">
+        <section className="py-12 md:py-24 bg-[#001243] relative overflow-hidden">
             {/* Glowing Overlays */}
-            <div className="absolute top-[10%] left-[5%] w-[600px] h-[600px] rounded-full bg-[#4580FF] opacity-[0.15] blur-[150px]"></div>
-            <div className="absolute bottom-[10%] right-[5%] w-[600px] h-[600px] rounded-full bg-[#4580FF] opacity-[0.15] blur-[150px]"></div>
+            <div className="absolute top-[10%] left-[5%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] rounded-full bg-[#4580FF] opacity-[0.15] blur-[150px]"></div>
+            <div className="absolute bottom-[10%] right-[5%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] rounded-full bg-[#4580FF] opacity-[0.15] blur-[150px]"></div>
 
-            <div className="container_fluid relative z-10">
-                <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="container_fluid relative z-10 px-4 md:px-6">
+                <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start md:items-center">
                     {/* Contact Form */}
-                    <div className="bg-[#000066]/50 backdrop-blur-sm p-8 rounded-2xl border border-white/10">
-                        <form onSubmit={handleSubmit} className="space-y-6">
-                            <div className="grid md:grid-cols-2 gap-6">
+                    <div className="bg-[#001243]/10 backdrop-blur-sm p-4 md:p-8 rounded-2xl border border-white/10">
+                        <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+                            <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
                                 {/* Name */}
                                 <div>
                                     <label className="text-white text-sm mb-2 block">
@@ -50,7 +50,7 @@ const Contact = () => {
                                         value={formData.name}
                                         onChange={handleChange}
                                         placeholder="Your Name"
-                                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-white/20"
+                                        className="w-full bg-white/5 border border-white/10 rounded-lg px-3 md:px-4 py-2.5 md:py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-white/20 text-sm md:text-base"
                                     />
                                 </div>
 
@@ -65,7 +65,7 @@ const Contact = () => {
                                         value={formData.email}
                                         onChange={handleChange}
                                         placeholder="support@envobyte.com"
-                                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-white/20"
+                                        className="w-full bg-white/5 border border-white/10 rounded-lg px-3 md:px-4 py-2.5 md:py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-white/20 text-sm md:text-base"
                                     />
                                 </div>
 
@@ -80,7 +80,7 @@ const Contact = () => {
                                         value={formData.phone}
                                         onChange={handleChange}
                                         placeholder="+1 (667) 777 2477"
-                                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-white/20"
+                                        className="w-full bg-white/5 border border-white/10 rounded-lg px-3 md:px-4 py-2.5 md:py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-white/20 text-sm md:text-base"
                                     />
                                 </div>
 
@@ -95,7 +95,7 @@ const Contact = () => {
                                         value={formData.company}
                                         onChange={handleChange}
                                         placeholder="Envobyte"
-                                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-white/20"
+                                        className="w-full bg-white/5 border border-white/10 rounded-lg px-3 md:px-4 py-2.5 md:py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-white/20 text-sm md:text-base"
                                     />
                                 </div>
                             </div>
@@ -111,14 +111,14 @@ const Contact = () => {
                                     onChange={handleChange}
                                     placeholder="Type your message here..."
                                     rows={4}
-                                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-white/20 resize-none"
+                                    className="w-full bg-white/5 border border-white/10 rounded-lg px-3 md:px-4 py-2.5 md:py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-white/20 resize-none text-sm md:text-base"
                                 ></textarea>
                             </div>
 
                             {/* Submit Button */}
                             <button
                                 type="submit"
-                                className="backdrop-blur-[10px] bg-white/5 text-white px-8 py-3 rounded-lg font-medium hover:bg-white/90 hover:text-black transition-colors border border-[#F1F3F74D]"
+                                className="w-full sm:w-auto backdrop-blur-[10px] bg-white/5 text-white px-6 md:px-8 py-2.5 md:py-3 rounded-lg font-medium hover:bg-white/90 hover:text-black transition-colors border border-[#F1F3F74D] text-sm md:text-base"
                             >
                                 Send message →
                             </button>
@@ -127,32 +127,28 @@ const Contact = () => {
 
                     {/* Contact Info */}
                     <div className="text-white">
-                        <h2 className="text-4xl font-bold mb-6">
-                            Let us know what <br /> you think!
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6">
+                            Let us know what <br className="hidden md:block" /> you think!
                         </h2>
-                        <p className="text-white mb-12 max-w-[400px]">
+                        <p className="text-white/80 text-sm md:text-base mb-8 md:mb-12 max-w-[400px]">
                             Got something on your mind? Share it with us! Drop a message, and we'll respond quickly to assist you
                         </p>
 
                         {/* Contact Links */}
-                        <div className="space-y-0 max-w-[400px]">
+                        <div className="space-y-4 max-w-[400px]">
                             {/* Email */}
                             <a
                                 href="mailto:support@envobyte.com"
-                                className="flex items-center gap-6 text-white py-6 border-b border-white/10 group"
+                                className="flex items-center gap-3 md:gap-4 text-white group"
                             >
-                                <span className="w-14 h-14 rounded-lg flex items-center justify-center relative overflow-hidden">
-                                    <div className="absolute inset-0 bg-[#e3e3e4] opacity-20"></div>
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#4580FF]/20 to-transparent"></div>
-                                    <div className="absolute inset-0 border-2 border-[#4580FF]/40 rounded-lg"></div>
-                                    <div className="absolute -inset-1 bg-[#f3f4f5] blur-lg opacity-20"></div>
-                                    <img src={facebookIcon} alt="Email" className="relative z-10 w-full" />
+                                <span className="w-10 h-10 md:w-12 md:h-12 bg-[#4580FF] rounded-lg flex items-center justify-center relative">
+                                    <img src={facebookIcon} alt="Email" className="w-6 h-6 md:w-7 md:h-7" />
                                 </span>
-                                <div className="flex-grow">
-                                    <p className="text-[16px] text-white/60 font-medium">Business:</p>
-                                    <div className="flex items-center gap-2">
-                                        <p className="text-[18px] font-semibold">support@envobyte.com</p>
-                                        <BsBoxArrowUpRight size={14} className="text-[#4580FF]" />
+                                <div className="flex-grow border-b border-white/10 pb-3 md:pb-4">
+                                    <p className="text-[13px] md:text-[14px] text-white/60 font-medium">Business:</p>
+                                    <div className="flex items-center justify-between">
+                                        <p className="text-[15px] md:text-[16px] font-semibold truncate mr-2">support@envobyte.com</p>
+                                        <BsBoxArrowUpRight size={12} className="text-white/60 flex-shrink-0" />
                                     </div>
                                 </div>
                             </a>
@@ -162,20 +158,16 @@ const Contact = () => {
                                 href="https://wa.me/16677772477"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-6 text-white py-6 border-b border-white/10 group"
+                                className="flex items-center gap-3 md:gap-4 text-white group"
                             >
-                                <span className="w-14 h-14 border border-white/20 rounded-lg flex items-center justify-center relative overflow-hidden">
-                                    <div className="absolute inset-0 bg-[#25D366] opacity-20"></div>
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#25D366]/20 to-transparent"></div>
-                                    <div className="absolute inset-0 border-2 border-[#25D366]/40 rounded-lg"></div>
-                                    <div className="absolute -inset-1 bg-[#25D366] blur-lg opacity-20"></div>
-                                    <img src={whatsappIcon} alt="WhatsApp" className="relative z-10 w-6 h-6" />
+                                <span className="w-10 h-10 md:w-12 md:h-12 bg-[#25D366] rounded-lg flex items-center justify-center relative">
+                                    <img src={whatsappIcon} alt="WhatsApp" className="w-6 h-6 md:w-7 md:h-7" />
                                 </span>
-                                <div className="flex-grow">
-                                    <p className="text-[16px] text-white/60 font-medium">Whatsapp:</p>
-                                    <div className="flex items-center gap-2">
-                                        <p className="text-[18px] font-semibold">+1 (667) 777 2477</p>
-                                        <BsBoxArrowUpRight size={14} className="text-[#4580FF]" />
+                                <div className="flex-grow border-b border-white/10 pb-3 md:pb-4">
+                                    <p className="text-[13px] md:text-[14px] text-white/60 font-medium">Whatsapp:</p>
+                                    <div className="flex items-center justify-between">
+                                        <p className="text-[15px] md:text-[16px] font-semibold truncate mr-2">+1 (667) 777 2477</p>
+                                        <BsBoxArrowUpRight size={12} className="text-white/60 flex-shrink-0" />
                                     </div>
                                 </div>
                             </a>
@@ -185,20 +177,16 @@ const Contact = () => {
                                 href="https://www.linkedin.com/company/envobyte"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-6 text-white py-6 border-b border-white/10 group"
+                                className="flex items-center gap-3 md:gap-4 text-white group"
                             >
-                                <span className="w-14 h-14 border border-white/20 rounded-lg flex items-center justify-center relative overflow-hidden">
-                                    <div className="absolute inset-0 bg-[#0A66C2] opacity-20"></div>
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A66C2]/20 to-transparent"></div>
-                                    <div className="absolute inset-0 border-2 border-[#0A66C2]/40 rounded-lg"></div>
-                                    <div className="absolute -inset-1 bg-[#0A66C2] blur-lg opacity-20"></div>
-                                    <img src={linkedinIcon} alt="LinkedIn" className="relative z-10 w-6 h-6" />
+                                <span className="w-10 h-10 md:w-12 md:h-12 bg-[#0A66C2] rounded-lg flex items-center justify-center relative">
+                                    <img src={linkedinIcon} alt="LinkedIn" className="w-6 h-6 md:w-7 md:h-7" />
                                 </span>
-                                <div className="flex-grow">
-                                    <p className="text-[16px] text-white/60 font-medium">Linkiedin:</p>
-                                    <div className="flex items-center gap-2">
-                                        <p className="text-[18px] font-semibold">www.linkedin.com/company/envobyte</p>
-                                        <BsBoxArrowUpRight size={14} className="text-[#4580FF]" />
+                                <div className="flex-grow border-b border-white/10 pb-3 md:pb-4">
+                                    <p className="text-[13px] md:text-[14px] text-white/60 font-medium">Linkedin:</p>
+                                    <div className="flex items-center justify-between">
+                                        <p className="text-[15px] md:text-[16px] font-semibold truncate mr-2">www.linkedin.com/company/envobyte</p>
+                                        <BsBoxArrowUpRight size={12} className="text-white/60 flex-shrink-0" />
                                     </div>
                                 </div>
                             </a>
