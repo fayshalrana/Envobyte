@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { HiOutlineMail } from "react-icons/hi";
-import { BsWhatsapp, BsLinkedin } from "react-icons/bs";
+import { BsBoxArrowUpRight } from "react-icons/bs";
+import facebookIcon from "../../../assets/icons/facebook.svg";
+import linkedinIcon from "../../../assets/icons/linkedin.svg";
+import whatsappIcon from "../../../assets/icons/whatsapp.svg";
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -26,8 +28,12 @@ const Contact = () => {
     };
 
     return (
-        <section className="py-24 bg-[#000066]">
-            <div className="container_fluid">
+        <section className="py-24 bg-[#000066] relative overflow-hidden">
+            {/* Glowing Overlays */}
+            <div className="absolute top-[10%] left-[5%] w-[600px] h-[600px] rounded-full bg-[#4580FF] opacity-[0.15] blur-[150px]"></div>
+            <div className="absolute bottom-[10%] right-[5%] w-[600px] h-[600px] rounded-full bg-[#4580FF] opacity-[0.15] blur-[150px]"></div>
+
+            <div className="container_fluid relative z-10">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     {/* Contact Form */}
                     <div className="bg-[#000066]/50 backdrop-blur-sm p-8 rounded-2xl border border-white/10">
@@ -35,7 +41,7 @@ const Contact = () => {
                             <div className="grid md:grid-cols-2 gap-6">
                                 {/* Name */}
                                 <div>
-                                    <label className="text-white/60 text-sm mb-2 block">
+                                    <label className="text-white text-sm mb-2 block">
                                         Name
                                     </label>
                                     <input
@@ -50,7 +56,7 @@ const Contact = () => {
 
                                 {/* Email */}
                                 <div>
-                                    <label className="text-white/60 text-sm mb-2 block">
+                                    <label className="text-white text-sm mb-2 block">
                                         Email
                                     </label>
                                     <input
@@ -65,7 +71,7 @@ const Contact = () => {
 
                                 {/* Phone */}
                                 <div>
-                                    <label className="text-white/60 text-sm mb-2 block">
+                                    <label className="text-white text-sm mb-2 block">
                                         Phone
                                     </label>
                                     <input
@@ -80,7 +86,7 @@ const Contact = () => {
 
                                 {/* Company */}
                                 <div>
-                                    <label className="text-white/60 text-sm mb-2 block">
+                                    <label className="text-white text-sm mb-2 block">
                                         Company
                                     </label>
                                     <input
@@ -96,7 +102,7 @@ const Contact = () => {
 
                             {/* Message */}
                             <div>
-                                <label className="text-white/60 text-sm mb-2 block">
+                                <label className="text-white text-sm mb-2 block">
                                     Message
                                 </label>
                                 <textarea
@@ -112,7 +118,7 @@ const Contact = () => {
                             {/* Submit Button */}
                             <button
                                 type="submit"
-                                className="bg-white text-[#000066] px-8 py-3 rounded-lg font-medium hover:bg-white/90 transition-colors"
+                                className="backdrop-blur-[10px] bg-white/5 text-white px-8 py-3 rounded-lg font-medium hover:bg-white/90 hover:text-black transition-colors border border-[#F1F3F74D]"
                             >
                                 Send message →
                             </button>
@@ -122,25 +128,32 @@ const Contact = () => {
                     {/* Contact Info */}
                     <div className="text-white">
                         <h2 className="text-4xl font-bold mb-6">
-                            Let us know what you think!
+                            Let us know what <br /> you think!
                         </h2>
-                        <p className="text-white/70 mb-12">
+                        <p className="text-white mb-12 max-w-[400px]">
                             Got something on your mind? Share it with us! Drop a message, and we'll respond quickly to assist you
                         </p>
 
                         {/* Contact Links */}
-                        <div className="space-y-6">
+                        <div className="space-y-0 max-w-[400px]">
                             {/* Email */}
                             <a
                                 href="mailto:support@envobyte.com"
-                                className="flex items-center gap-4 text-white/70 hover:text-white transition-colors group"
+                                className="flex items-center gap-6 text-white py-6 border-b border-white/10 group"
                             >
-                                <span className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center group-hover:bg-white/10 transition-colors">
-                                    <HiOutlineMail size={24} />
+                                <span className="w-14 h-14 rounded-lg flex items-center justify-center relative overflow-hidden">
+                                    <div className="absolute inset-0 bg-[#e3e3e4] opacity-20"></div>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#4580FF]/20 to-transparent"></div>
+                                    <div className="absolute inset-0 border-2 border-[#4580FF]/40 rounded-lg"></div>
+                                    <div className="absolute -inset-1 bg-[#f3f4f5] blur-lg opacity-20"></div>
+                                    <img src={facebookIcon} alt="Email" className="relative z-10 w-full" />
                                 </span>
-                                <div>
-                                    <p className="text-sm text-white/50">Business:</p>
-                                    <p>support@envobyte.com</p>
+                                <div className="flex-grow">
+                                    <p className="text-[16px] text-white/60 font-medium">Business:</p>
+                                    <div className="flex items-center gap-2">
+                                        <p className="text-[18px] font-semibold">support@envobyte.com</p>
+                                        <BsBoxArrowUpRight size={14} className="text-[#4580FF]" />
+                                    </div>
                                 </div>
                             </a>
 
@@ -149,14 +162,21 @@ const Contact = () => {
                                 href="https://wa.me/16677772477"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-4 text-white/70 hover:text-white transition-colors group"
+                                className="flex items-center gap-6 text-white py-6 border-b border-white/10 group"
                             >
-                                <span className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center group-hover:bg-white/10 transition-colors">
-                                    <BsWhatsapp size={24} />
+                                <span className="w-14 h-14 border border-white/20 rounded-lg flex items-center justify-center relative overflow-hidden">
+                                    <div className="absolute inset-0 bg-[#25D366] opacity-20"></div>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#25D366]/20 to-transparent"></div>
+                                    <div className="absolute inset-0 border-2 border-[#25D366]/40 rounded-lg"></div>
+                                    <div className="absolute -inset-1 bg-[#25D366] blur-lg opacity-20"></div>
+                                    <img src={whatsappIcon} alt="WhatsApp" className="relative z-10 w-6 h-6" />
                                 </span>
-                                <div>
-                                    <p className="text-sm text-white/50">WhatsApp:</p>
-                                    <p>+1 (667) 777 2477</p>
+                                <div className="flex-grow">
+                                    <p className="text-[16px] text-white/60 font-medium">Whatsapp:</p>
+                                    <div className="flex items-center gap-2">
+                                        <p className="text-[18px] font-semibold">+1 (667) 777 2477</p>
+                                        <BsBoxArrowUpRight size={14} className="text-[#4580FF]" />
+                                    </div>
                                 </div>
                             </a>
 
@@ -165,14 +185,21 @@ const Contact = () => {
                                 href="https://www.linkedin.com/company/envobyte"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-4 text-white/70 hover:text-white transition-colors group"
+                                className="flex items-center gap-6 text-white py-6 border-b border-white/10 group"
                             >
-                                <span className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center group-hover:bg-white/10 transition-colors">
-                                    <BsLinkedin size={24} />
+                                <span className="w-14 h-14 border border-white/20 rounded-lg flex items-center justify-center relative overflow-hidden">
+                                    <div className="absolute inset-0 bg-[#0A66C2] opacity-20"></div>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A66C2]/20 to-transparent"></div>
+                                    <div className="absolute inset-0 border-2 border-[#0A66C2]/40 rounded-lg"></div>
+                                    <div className="absolute -inset-1 bg-[#0A66C2] blur-lg opacity-20"></div>
+                                    <img src={linkedinIcon} alt="LinkedIn" className="relative z-10 w-6 h-6" />
                                 </span>
-                                <div>
-                                    <p className="text-sm text-white/50">LinkedIn:</p>
-                                    <p>www.linkedin.com/company/envobyte</p>
+                                <div className="flex-grow">
+                                    <p className="text-[16px] text-white/60 font-medium">Linkiedin:</p>
+                                    <div className="flex items-center gap-2">
+                                        <p className="text-[18px] font-semibold">www.linkedin.com/company/envobyte</p>
+                                        <BsBoxArrowUpRight size={14} className="text-[#4580FF]" />
+                                    </div>
                                 </div>
                             </a>
                         </div>

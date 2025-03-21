@@ -1,6 +1,14 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
+import portfolio1 from "../../../assets/images/portfolio/portfolio1.svg";
+import portfolio2 from "../../../assets/images/portfolio/portfolio2.svg";
+import portfolio3 from "../../../assets/images/portfolio/portfolio3.svg";
+import portfolio4 from "../../../assets/images/portfolio/portfolio4.svg";
+import portfolio5 from "../../../assets/images/portfolio/portfolio5.svg";
+import portfolio6 from "../../../assets/images/portfolio/portfolio6.svg";
+import portfolio7 from "../../../assets/images/portfolio/portfolio7.webp";
+import portfolio8 from "../../../assets/images/portfolio/portfolio8.png";
 
 const Portfolio = () => {
     const [activeTab, setActiveTab] = useState("UI/UX");
@@ -15,84 +23,84 @@ const Portfolio = () => {
         // UI/UX Items (12 items)
         {
             id: 1,
-            image: "/assets/images/portfolio/portfolio-1.jpg",
+            image: portfolio1,
             title: "Modern Dashboard",
             subtitle: "UI/UX Design",
             category: "UI/UX"
         },
         {
             id: 2,
-            image: "/assets/images/portfolio/portfolio-7.jpg",
+            image: portfolio2,
             title: "Mobile App UI",
             subtitle: "UI/UX Design",
             category: "UI/UX"
         },
         {
             id: 3,
-            image: "/assets/images/portfolio/portfolio-9.jpg",
+            image: portfolio3,
             title: "Social Network App",
             subtitle: "UI/UX Design",
             category: "UI/UX"
         },
         {
             id: 4,
-            image: "/assets/images/portfolio/portfolio-10.jpg",
+            image: portfolio4,
             title: "Fitness Tracker",
             subtitle: "UI/UX Design",
             category: "UI/UX"
         },
         {
             id: 5,
-            image: "/assets/images/portfolio/portfolio-11.jpg",
+            image: portfolio5,
             title: "Travel Booking App",
             subtitle: "UI/UX Design",
             category: "UI/UX"
         },
         {
             id: 6,
-            image: "/assets/images/portfolio/portfolio-12.jpg",
+            image: portfolio6,
             title: "Food Delivery UI",
             subtitle: "UI/UX Design",
             category: "UI/UX"
         },
         {
             id: 29,
-            image: "/assets/images/portfolio/portfolio-29.jpg",
+            image: portfolio7,
             title: "Music Player App",
             subtitle: "UI/UX Design",
             category: "UI/UX"
         },
         {
             id: 30,
-            image: "/assets/images/portfolio/portfolio-30.jpg",
+            image: portfolio8,
             title: "Weather App Design",
             subtitle: "UI/UX Design",
             category: "UI/UX"
         },
         {
             id: 31,
-            image: "/assets/images/portfolio/portfolio-31.jpg",
+            image: portfolio1,
             title: "Task Manager UI",
             subtitle: "UI/UX Design",
             category: "UI/UX"
         },
         {
             id: 32,
-            image: "/assets/images/portfolio/portfolio-32.jpg",
+            image: portfolio2,
             title: "Chat Application",
             subtitle: "UI/UX Design",
             category: "UI/UX"
         },
         {
             id: 33,
-            image: "/assets/images/portfolio/portfolio-33.jpg",
+            image: portfolio3,
             title: "Smart Home App",
             subtitle: "UI/UX Design",
             category: "UI/UX"
         },
         {
             id: 34,
-            image: "/assets/images/portfolio/portfolio-34.jpg",
+            image: portfolio4,
             title: "Meditation App",
             subtitle: "UI/UX Design",
             category: "UI/UX"
@@ -101,84 +109,84 @@ const Portfolio = () => {
         // Website Items (12 items)
         {
             id: 7,
-            image: "/assets/images/portfolio/portfolio-2.jpg",
+            image: portfolio5,
             title: "E-learning Platform",
             subtitle: "Web Development",
             category: "WEBSITE"
         },
         {
             id: 8,
-            image: "/assets/images/portfolio/portfolio-8.jpg",
+            image: portfolio6,
             title: "E-commerce Website",
             subtitle: "Web Development",
             category: "WEBSITE"
         },
         {
             id: 9,
-            image: "/assets/images/portfolio/portfolio-13.jpg",
+            image: portfolio7,
             title: "Real Estate Portal",
             subtitle: "Web Development",
             category: "WEBSITE"
         },
         {
             id: 10,
-            image: "/assets/images/portfolio/portfolio-14.jpg",
+            image: portfolio8,
             title: "News Magazine",
             subtitle: "Web Development",
             category: "WEBSITE"
         },
         {
             id: 11,
-            image: "/assets/images/portfolio/portfolio-15.jpg",
+            image: portfolio1,
             title: "Healthcare Platform",
             subtitle: "Web Development",
             category: "WEBSITE"
         },
         {
             id: 12,
-            image: "/assets/images/portfolio/portfolio-16.jpg",
+            image: portfolio2,
             title: "Job Portal",
             subtitle: "Web Development",
             category: "WEBSITE"
         },
         {
             id: 35,
-            image: "/assets/images/portfolio/portfolio-35.jpg",
+            image: portfolio3,
             title: "Travel Blog",
             subtitle: "Web Development",
             category: "WEBSITE"
         },
         {
             id: 36,
-            image: "/assets/images/portfolio/portfolio-36.jpg",
+            image: portfolio4,
             title: "Restaurant Website",
             subtitle: "Web Development",
             category: "WEBSITE"
         },
         {
             id: 37,
-            image: "/assets/images/portfolio/portfolio-37.jpg",
+            image: portfolio5,
             title: "Portfolio Platform",
             subtitle: "Web Development",
             category: "WEBSITE"
         },
         {
             id: 38,
-            image: "/assets/images/portfolio/portfolio-38.jpg",
+            image: portfolio6,
             title: "Event Management",
             subtitle: "Web Development",
             category: "WEBSITE"
         },
         {
             id: 39,
-            image: "/assets/images/portfolio/portfolio-39.jpg",
+            image: portfolio7,
             title: "Online Course Platform",
             subtitle: "Web Development",
             category: "WEBSITE"
         },
         {
             id: 40,
-            image: "/assets/images/portfolio/portfolio-40.jpg",
+            image: portfolio8,
             title: "Fitness Website",
             subtitle: "Web Development",
             category: "WEBSITE"
@@ -187,70 +195,70 @@ const Portfolio = () => {
         // SEO Items (10 items)
         {
             id: 13,
-            image: "/assets/images/portfolio/portfolio-3.jpg",
+            image: portfolio1,
             title: "SEO Optimization",
             subtitle: "Digital Marketing",
             category: "SEO"
         },
         {
             id: 14,
-            image: "/assets/images/portfolio/portfolio-17.jpg",
+            image: portfolio2,
             title: "Local SEO Campaign",
             subtitle: "Digital Marketing",
             category: "SEO"
         },
         {
             id: 15,
-            image: "/assets/images/portfolio/portfolio-18.jpg",
+            image: portfolio3,
             title: "E-commerce SEO",
             subtitle: "Digital Marketing",
             category: "SEO"
         },
         {
             id: 16,
-            image: "/assets/images/portfolio/portfolio-19.jpg",
+            image: portfolio4,
             title: "Content Strategy",
             subtitle: "Digital Marketing",
             category: "SEO"
         },
         {
             id: 41,
-            image: "/assets/images/portfolio/portfolio-41.jpg",
+            image: portfolio5,
             title: "Blog SEO Strategy",
             subtitle: "Digital Marketing",
             category: "SEO"
         },
         {
             id: 42,
-            image: "/assets/images/portfolio/portfolio-42.jpg",
+            image: portfolio6,
             title: "Technical SEO Audit",
             subtitle: "Digital Marketing",
             category: "SEO"
         },
         {
             id: 43,
-            image: "/assets/images/portfolio/portfolio-43.jpg",
+            image: portfolio7,
             title: "International SEO",
             subtitle: "Digital Marketing",
             category: "SEO"
         },
         {
             id: 44,
-            image: "/assets/images/portfolio/portfolio-44.jpg",
+            image: portfolio8,
             title: "Mobile SEO Project",
             subtitle: "Digital Marketing",
             category: "SEO"
         },
         {
             id: 45,
-            image: "/assets/images/portfolio/portfolio-45.jpg",
+            image: portfolio1,
             title: "Enterprise SEO",
             subtitle: "Digital Marketing",
             category: "SEO"
         },
         {
             id: 46,
-            image: "/assets/images/portfolio/portfolio-46.jpg",
+            image: portfolio2,
             title: "SaaS SEO Campaign",
             subtitle: "Digital Marketing",
             category: "SEO"
@@ -259,70 +267,70 @@ const Portfolio = () => {
         // Logo Design Items (10 items)
         {
             id: 17,
-            image: "/assets/images/portfolio/portfolio-4.jpg",
+            image: portfolio3,
             title: "Brand Identity",
             subtitle: "Logo Design",
             category: "LOGO DESIGN"
         },
         {
             id: 18,
-            image: "/assets/images/portfolio/portfolio-20.jpg",
+            image: portfolio4,
             title: "Restaurant Logo",
             subtitle: "Logo Design",
             category: "LOGO DESIGN"
         },
         {
             id: 19,
-            image: "/assets/images/portfolio/portfolio-21.jpg",
+            image: portfolio5,
             title: "Tech Startup Logo",
             subtitle: "Logo Design",
             category: "LOGO DESIGN"
         },
         {
             id: 20,
-            image: "/assets/images/portfolio/portfolio-22.jpg",
+            image: portfolio6,
             title: "Fashion Brand Logo",
             subtitle: "Logo Design",
             category: "LOGO DESIGN"
         },
         {
             id: 47,
-            image: "/assets/images/portfolio/portfolio-47.jpg",
+            image: portfolio7,
             title: "Sports Brand Logo",
             subtitle: "Logo Design",
             category: "LOGO DESIGN"
         },
         {
             id: 48,
-            image: "/assets/images/portfolio/portfolio-48.jpg",
+            image: portfolio8,
             title: "Education Logo",
             subtitle: "Logo Design",
             category: "LOGO DESIGN"
         },
         {
             id: 49,
-            image: "/assets/images/portfolio/portfolio-49.jpg",
+            image: portfolio1,
             title: "Healthcare Logo",
             subtitle: "Logo Design",
             category: "LOGO DESIGN"
         },
         {
             id: 50,
-            image: "/assets/images/portfolio/portfolio-50.jpg",
+            image: portfolio2,
             title: "Real Estate Logo",
             subtitle: "Logo Design",
             category: "LOGO DESIGN"
         },
         {
             id: 51,
-            image: "/assets/images/portfolio/portfolio-51.jpg",
+            image: portfolio3,
             title: "Gaming Logo",
             subtitle: "Logo Design",
             category: "LOGO DESIGN"
         },
         {
             id: 52,
-            image: "/assets/images/portfolio/portfolio-52.jpg",
+            image: portfolio4,
             title: "Food Brand Logo",
             subtitle: "Logo Design",
             category: "LOGO DESIGN"
@@ -331,70 +339,70 @@ const Portfolio = () => {
         // Banner Design Items (10 items)
         {
             id: 21,
-            image: "/assets/images/portfolio/portfolio-5.jpg",
+            image: portfolio5,
             title: "Social Media Kit",
             subtitle: "Banner Design",
             category: "BANNER DESIGN"
         },
         {
             id: 22,
-            image: "/assets/images/portfolio/portfolio-23.jpg",
+            image: portfolio6,
             title: "Event Banners",
             subtitle: "Banner Design",
             category: "BANNER DESIGN"
         },
         {
             id: 23,
-            image: "/assets/images/portfolio/portfolio-24.jpg",
+            image: portfolio7,
             title: "Product Launch",
             subtitle: "Banner Design",
             category: "BANNER DESIGN"
         },
         {
             id: 24,
-            image: "/assets/images/portfolio/portfolio-25.jpg",
+            image: portfolio8,
             title: "Sale Campaign",
             subtitle: "Banner Design",
             category: "BANNER DESIGN"
         },
         {
             id: 53,
-            image: "/assets/images/portfolio/portfolio-53.jpg",
+            image: portfolio1,
             title: "Festival Banners",
             subtitle: "Banner Design",
             category: "BANNER DESIGN"
         },
         {
             id: 54,
-            image: "/assets/images/portfolio/portfolio-54.jpg",
+            image: portfolio2,
             title: "App Launch Banners",
             subtitle: "Banner Design",
             category: "BANNER DESIGN"
         },
         {
             id: 55,
-            image: "/assets/images/portfolio/portfolio-55.jpg",
+            image: portfolio3,
             title: "Holiday Campaign",
             subtitle: "Banner Design",
             category: "BANNER DESIGN"
         },
         {
             id: 56,
-            image: "/assets/images/portfolio/portfolio-56.jpg",
+            image: portfolio4,
             title: "Fashion Collection",
             subtitle: "Banner Design",
             category: "BANNER DESIGN"
         },
         {
             id: 57,
-            image: "/assets/images/portfolio/portfolio-57.jpg",
+            image: portfolio5,
             title: "Tech Conference",
             subtitle: "Banner Design",
             category: "BANNER DESIGN"
         },
         {
             id: 58,
-            image: "/assets/images/portfolio/portfolio-58.jpg",
+            image: portfolio6,
             title: "Black Friday Sale",
             subtitle: "Banner Design",
             category: "BANNER DESIGN"
@@ -403,63 +411,63 @@ const Portfolio = () => {
         // Google Ads Items (10 items)
         {
             id: 25,
-            image: "/assets/images/portfolio/portfolio-6.jpg",
+            image: portfolio7,
             title: "Google Ads Campaign",
             subtitle: "Digital Marketing",
             category: "GOOGLE ADS"
         },
         {
             id: 26,
-            image: "/assets/images/portfolio/portfolio-26.jpg",
+            image: portfolio8,
             title: "PPC Campaign",
             subtitle: "Digital Marketing",
             category: "GOOGLE ADS"
         },
         {
             id: 27,
-            image: "/assets/images/portfolio/portfolio-27.jpg",
+            image: portfolio1,
             title: "Display Ads",
             subtitle: "Digital Marketing",
             category: "GOOGLE ADS"
         },
         {
             id: 28,
-            image: "/assets/images/portfolio/portfolio-28.jpg",
+            image: portfolio2,
             title: "Remarketing Ads",
             subtitle: "Digital Marketing",
             category: "GOOGLE ADS"
         },
         {
             id: 59,
-            image: "/assets/images/portfolio/portfolio-59.jpg",
+            image: portfolio3,
             title: "Video Ads",
             subtitle: "Digital Marketing",
             category: "GOOGLE ADS"
         },
         {
             id: 60,
-            image: "/assets/images/portfolio/portfolio-60.jpg",
+            image: portfolio4,
             title: "Shopping Ads",
             subtitle: "Digital Marketing",
             category: "GOOGLE ADS"
         },
         {
             id: 61,
-            image: "/assets/images/portfolio/portfolio-61.jpg",
+            image: portfolio5,
             title: "Local Service Ads",
             subtitle: "Digital Marketing",
             category: "GOOGLE ADS"
         },
         {
             id: 62,
-            image: "/assets/images/portfolio/portfolio-62.jpg",
+            image: portfolio6,
             title: "App Campaign",
             subtitle: "Digital Marketing",
             category: "GOOGLE ADS"
         },
         {
             id: 63,
-            image: "/assets/images/portfolio/portfolio-63.jpg",
+            image: portfolio7,
             title: "Discovery Ads",
             subtitle: "Digital Marketing",
             category: "GOOGLE ADS"
@@ -541,10 +549,10 @@ const Portfolio = () => {
     const canScrollPrev = firstRowIndex > 0 || secondRowIndex > getInitialSecondRowIndex(secondRow.length);
 
     return (
-        <section className="py-16 bg-[#F8F9FF]">
-            <div className="container_fluid">
+        <section className="pb-16 bg-[#F8F9FF]">
+            <div className="relative">
                 {/* Header */}
-                <div className="flex flex-col gap-4 mb-8">
+                <div className="flex flex-col gap-4 mb-8 z-10 relative px-[55px]">
                     <div className="flex justify-between items-center">
                         <div>
                             <span className="text-[#0066FF] uppercase text-sm font-medium mb-2 block">
@@ -565,7 +573,7 @@ const Portfolio = () => {
                 </div>
 
                 {/* Tabs */}
-                <div className="flex gap-8 mb-12 overflow-x-auto pb-4">
+                <div className="flex gap-8 mb-12 overflow-x-auto pb-4 px-[55px]">
                     {tabs.map((tab) => (
                         <button
                             key={tab}
@@ -600,12 +608,6 @@ const Portfolio = () => {
                                         alt={item.title}
                                         className="w-full h-64 object-cover"
                                     />
-                                    <div className="p-6">
-                                        <h3 className="text-[#000033] text-xl font-semibold mb-2">
-                                            {item.title}
-                                        </h3>
-                                        <p className="text-[#0066FF]">{item.subtitle}</p>
-                                    </div>
                                 </div>
                             </div>
                         ))}
@@ -629,12 +631,6 @@ const Portfolio = () => {
                                         alt={item.title}
                                         className="w-full h-64 object-cover"
                                     />
-                                    <div className="p-6">
-                                        <h3 className="text-[#000033] text-xl font-semibold mb-2">
-                                            {item.title}
-                                        </h3>
-                                        <p className="text-[#0066FF]">{item.subtitle}</p>
-                                    </div>
                                 </div>
                             </div>
                         ))}

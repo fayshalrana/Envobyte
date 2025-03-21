@@ -173,7 +173,7 @@ const Services = () => {
                         {filteredServices.map((service) => (
                             <div
                                 key={service.id}
-                                className="backdrop-blur-[72px] bg-white/5 border border-white/20 text-white p-8 rounded-lg flex flex-col items-center text-center min-w-[calc(33.33%-1.33rem)]"
+                                className="backdrop-blur-[72px] bg-white/5 border border-white/20 text-white p-8 rounded-lg flex flex-col items-center text-center min-w-[calc(33.33%-1.33rem)] max-w-[576px]"
                             >
                                 <img
                                     src={service.image}

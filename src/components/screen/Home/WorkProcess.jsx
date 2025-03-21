@@ -1,58 +1,63 @@
 import { Link } from "react-router-dom";
+import teamSilhouette from '../../../assets/images/how-we-work.webp';
 
 const WorkProcess = () => {
     const processSteps = [
         {
             id: "01.",
             title: "Make An Appointment",
-            gradient: "from-[#FF6B4B] to-[#000033]",
             position: "translate-y-12"
         },
         {
             id: "02.",
             title: "Meet Our Team",
-            gradient: "from-[#FF6B4B] to-[#000033]",
             position: "translate-y-48"
         },
         {
             id: "03.",
             title: "Get Consultation",
-            gradient: "from-[#FF6B4B] to-[#000033]",
             position: "translate-y-12"
         },
         {
             id: "04.",
             title: "Start Project",
-            gradient: "from-[#FF6B4B] to-[#000033]",
             position: "translate-y-48"
         }
     ];
 
     return (
-        <section className="py-24 bg-[#000033] relative overflow-hidden">
+        <section className="py-24 relative overflow-hidden">
+            <div
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                style={{
+                    backgroundImage: `url(${teamSilhouette})`,
+                }}
+            ></div>
+            <div className="absolute inset-0 bg-[#001C6C] opacity-50"></div>
             {/* Vertical Text */}
-            <div className="absolute right-8 top-1/2 -translate-y-1/2 -rotate-90 origin-center">
+            <div className="absolute right-[9rem] top-[30%] -translate-y-1/2 -rotate-90 origin-center z-10 flex justify-center items-center row-reverse gap-2">
                 <span className="text-white/50 tracking-[0.2em] uppercase text-sm">
                     Project In Steps
                 </span>
+                <div className="h-[2px] w-[50px] bg-white mx-auto"></div>
             </div>
 
-            <div className="container_fluid">
+            <div className="container_fluid relative z-20">
                 {/* Header */}
-                <div className="text-center mb-32 max-w-2xl mx-auto">
-                    <span className="text-[#FF6B4B] uppercase text-sm font-medium mb-4 block">
+                <div className="text-center mb-2 max-w-2xl mx-auto">
+                    <span className="text-white uppercase text-[20px] font-[600] mb-5 block">
                         HOW WE WORK
                     </span>
-                    <h2 className="text-white text-4xl font-bold mb-6">
+                    <h2 className="text-white text-[45px] font-[800] mb-5 leading-[50px]">
                         Our Process For Delivering Results
                     </h2>
-                    <p className="text-white/70">
+                    <p className="text-white text-[14px] font-[400] leading-[20px]">
                         Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been the industry's standard dummy text ever
                     </p>
                 </div>
 
                 {/* Process Steps */}
-                <div className="relative max-w-5xl mx-auto mb-32 h-[400px]">
+                <div className="relative mx-auto mb-[82px] h-[400px]">
                     {/* Curved Connecting Lines */}
                     <svg className="absolute top-0 left-0 w-full h-full z-0" viewBox="0 0 1000 400">
                         {/* Background dashed line */}
@@ -87,16 +92,17 @@ const WorkProcess = () => {
                                 className={`text-center ${step.position} transition-transform duration-500`}
                             >
                                 <div
-                                    className={`w-28 h-28 rounded-full bg-gradient-to-br ${step.gradient} flex items-center justify-center text-white text-2xl font-bold mb-4 mx-auto shadow-lg relative`}
+                                    className="w-48 h-48 p-6 rounded-full flex flex-col items-start justify-center text-white text-2xl font-bold mb-4 mx-auto shadow-lg relative"
                                     style={{
-                                        background: 'linear-gradient(135deg, #FF6B4B 0%, #8B1E1E 100%)'
+                                        background: 'linear-gradient(to bottom, #FF693B 0%, #001C6C 100%)'
                                     }}
                                 >
                                     {step.id}
+                                    <h3 className="text-white text-[20px] font-[800] text-left mt-[10px]">
+                                        {step.title}
+                                    </h3>
                                 </div>
-                                <h3 className="text-white text-lg font-medium whitespace-nowrap mt-4">
-                                    {step.title}
-                                </h3>
+
                             </div>
                         ))}
                     </div>

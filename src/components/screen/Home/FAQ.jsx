@@ -37,20 +37,20 @@ const FAQ = () => {
     };
 
     return (
-        <section className="py-24 bg-[#F8F9FF]">
+        <section className="pt-[52px] pb-[273px] bg-[#F8F9FF]">
             <div className="container_fluid">
-                <div className="max-w-3xl mx-auto">
+                <div className="max-w-[938px] mx-auto">
                     {/* Header */}
-                    <h2 className="text-[#000066] text-4xl font-bold text-center mb-12">
+                    <h2 className="text-[#000066] text-[48px] font-bold text-center mb-[66px]">
                         Frequently Asked Questions
                     </h2>
 
                     {/* FAQ Items */}
-                    <div className="space-y-4">
+                    <div className="space-y-6">
                         {faqData.map((faq) => (
                             <div
                                 key={faq.id}
-                                className="border border-gray-200 rounded-lg overflow-hidden bg-white"
+                                className="border-b border-gray-200 overflow-hidden"
                             >
                                 {/* Question */}
                                 <button
@@ -58,10 +58,10 @@ const FAQ = () => {
                                     className="w-full flex items-center justify-between p-5 text-left"
                                 >
                                     <div className="flex items-center gap-4">
-                                        <span className="text-[#0066FF] text-sm font-medium">
+                                        <span className="text-[#0066FF] text-[18px] font-medium">
                                             {String(faq.id).padStart(2, '0')}
                                         </span>
-                                        <h3 className="text-[#000033] font-medium">
+                                        <h3 className={`text-[24px] font-medium ${activeIndex === faq.id ? 'text-[#0A2C8C]' : 'text-[##6D758F]'}`}>
                                             {faq.question}
                                         </h3>
                                     </div>
@@ -79,7 +79,7 @@ const FAQ = () => {
                                     className={`overflow-hidden transition-all duration-300 ${activeIndex === faq.id ? 'max-h-40' : 'max-h-0'
                                         }`}
                                 >
-                                    <p className="p-5 pt-0 text-gray-600">
+                                    <p className="p-5 pt-0 text-gray-600 text-[24px] leading-[36px]">
                                         {faq.answer}
                                     </p>
                                 </div>

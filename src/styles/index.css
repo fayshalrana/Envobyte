@@ -33,7 +33,7 @@ body {
 }
 
 .h3 {
-  @apply text-[32px] lg:text-[48px] leading-[42px] lg:leading-[24px] -tracking-[2px] lg:-tracking-[1px] font-bold text-white pb-[30px];
+  @apply text-[32px] lg:text-[48px] leading-[42px] lg:leading-[24px] -tracking-[2px] lg:-tracking-[1px] font-bold pb-[30px];
 }
 
 

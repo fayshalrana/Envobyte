@@ -2,6 +2,11 @@ import { useState, useEffect } from "react";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import { AiFillStar } from "react-icons/ai";
 import { BsCheckCircleFill } from "react-icons/bs";
+import client1 from '../../../assets/images/testimoinal/client1.svg';
+import client2 from '../../../assets/images/testimoinal/client2.svg';
+import client3 from '../../../assets/images/testimoinal/client3.svg';
+import fiverr from '../../../assets/images/testimoinal/fiver.svg';
+import upwork from '../../../assets/images/testimoinal/upwork.svg';
 
 const Testimonials = () => {
     const [firstRowIndex, setFirstRowIndex] = useState(0);
@@ -13,85 +18,97 @@ const Testimonials = () => {
         {
             id: 1,
             name: "Stephanie Powell",
-            position: "From fiverr",
-            image: "/assets/images/testimonials/user1.jpg",
+            platform: "From fiverr",
+            image: client1,
+            platformIcon: fiverr,
             text: "Lorem ipsum dolor sit amet dolor sit consectetur eget maecenas sapien fusce egestas risus purus suspendisse turpis volutpat onare"
         },
         {
             id: 2,
             name: "Brian Clark",
-            position: "From upwork",
-            image: "/assets/images/testimonials/user2.jpg",
+            platform: "From upwork",
+            image: client2,
+            platformIcon: upwork,
             text: "Lorem ipsum dolor sit amet dolor sit consectetur eget maecenas sapien fusce egestas risus purus suspendisse turpis volutpat onare"
         },
         {
             id: 3,
             name: "Christopher White",
-            position: "From freelancer",
-            image: "/assets/images/testimonials/user3.jpg",
+            platform: "From fiverr",
+            image: client3,
+            platformIcon: fiverr,
             text: "Lorem ipsum dolor sit amet dolor sit consectetur eget maecenas sapien fusce egestas risus purus suspendisse turpis volutpat onare"
         },
         {
             id: 4,
             name: "Brian Clark",
-            position: "From fiverr",
-            image: "/assets/images/testimonials/user4.jpg",
+            platform: "From fiverr",
+            image: client1,
+            platformIcon: fiverr,
             text: "Lorem ipsum dolor sit amet dolor sit consectetur eget maecenas sapien fusce egestas risus purus suspendisse turpis volutpat onare"
         },
         {
             id: 5,
             name: "Christopher White",
-            position: "From upwork",
-            image: "/assets/images/testimonials/user5.jpg",
+            platform: "From upwork",
+            image: client2,
+            platformIcon: upwork,
             text: "Lorem ipsum dolor sit amet dolor sit consectetur eget maecenas sapien fusce egestas risus purus suspendisse turpis volutpat onare"
         },
         {
             id: 6,
             name: "Stephanie Powell",
-            position: "From freelancer",
-            image: "/assets/images/testimonials/user6.jpg",
+            platform: "From freelancer",
+            image: client3,
+            platformIcon: fiverr,
             text: "Lorem ipsum dolor sit amet dolor sit consectetur eget maecenas sapien fusce egestas risus purus suspendisse turpis volutpat onare"
         },
         {
             id: 7,
             name: "Stephanie Powell",
-            position: "From fiverr",
-            image: "/assets/images/testimonials/user1.jpg",
+            platform: "From fiverr",
+            image: client1,
+            platformIcon: fiverr,
             text: "Lorem ipsum dolor sit amet dolor sit consectetur eget maecenas sapien fusce egestas risus purus suspendisse turpis volutpat onare"
         },
         {
             id: 8,
             name: "Brian Clark",
-            position: "From upwork",
-            image: "/assets/images/testimonials/user2.jpg",
+            platform: "From upwork",
+            image: client2,
+            platformIcon: upwork,
             text: "Lorem ipsum dolor sit amet dolor sit consectetur eget maecenas sapien fusce egestas risus purus suspendisse turpis volutpat onare"
         },
         {
             id: 9,
             name: "Christopher White",
-            position: "From freelancer",
-            image: "/assets/images/testimonials/user3.jpg",
+            platform: "From freelancer",
+            image: client3,
+            platformIcon: fiverr,
             text: "Lorem ipsum dolor sit amet dolor sit consectetur eget maecenas sapien fusce egestas risus purus suspendisse turpis volutpat onare"
         },
         {
             id: 10,
             name: "Brian Clark",
-            position: "From fiverr",
-            image: "/assets/images/testimonials/user4.jpg",
+            platform: "From fiverr",
+            image: client1,
+            platformIcon: fiverr,
             text: "Lorem ipsum dolor sit amet dolor sit consectetur eget maecenas sapien fusce egestas risus purus suspendisse turpis volutpat onare"
         },
         {
             id: 11,
             name: "Christopher White",
-            position: "From upwork",
-            image: "/assets/images/testimonials/user5.jpg",
+            platform: "From upwork",
+            image: client2,
+            platformIcon: upwork,
             text: "Lorem ipsum dolor sit amet dolor sit consectetur eget maecenas sapien fusce egestas risus purus suspendisse turpis volutpat onare"
         },
         {
             id: 12,
             name: "Stephanie Powell",
-            position: "From freelancer",
-            image: "/assets/images/testimonials/user6.jpg",
+            platform: "From freelancer",
+            image: client3,
+            platformIcon: fiverr,
             text: "Lorem ipsum dolor sit amet dolor sit consectetur eget maecenas sapien fusce egestas risus purus suspendisse turpis volutpat onare"
         }
     ];
@@ -155,39 +172,47 @@ const Testimonials = () => {
     const canScrollPrev = firstRowIndex > 0 || secondRowIndex > getInitialSecondRowIndex(secondRow.length);
 
     const TestimonialCard = ({ testimonial }) => (
-        <div className="w-1/3 flex-shrink-0 px-4">
-            <div className="bg-white rounded-lg p-8 shadow-lg border border-gray-100">
+        <div className="w-1/3 flex-shrink-0 p-[10px]">
+            <div className="bg-white rounded-[10px] p-8 relative before:absolute before:inset-[-2px] before:p-[2px] before:bg-gradient-to-b before:from-[#0A2C8C33] before:to-[#f7f7f7] before:rounded-[10px] before:-z-[1]">
                 {/* Stars */}
                 <div className="flex gap-1 mb-4">
                     {[...Array(5)].map((_, i) => (
                         <AiFillStar
                             key={i}
-                            className="text-[#FFB800]"
+                            className="text-[#4580FF]"
                             size={20}
                         />
                     ))}
                 </div>
 
                 {/* Review Text */}
-                <p className="text-gray-600 mb-6">
+                <p className="text-[#424242] text-[14px] leading-[24px] mb-6">
                     "{testimonial.text}"
                 </p>
 
                 {/* User Info */}
-                <div className="flex items-center gap-3">
-                    <img
-                        src={testimonial.image}
-                        alt={testimonial.name}
-                        className="w-12 h-12 rounded-full object-cover"
-                    />
-                    <div>
-                        <h4 className="text-[#000033] font-semibold flex items-center gap-2">
-                            {testimonial.name}
-                            <BsCheckCircleFill className="text-[#0066FF] text-sm" />
-                        </h4>
-                        <p className="text-gray-500 text-sm">
-                            {testimonial.position}
-                        </p>
+                <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                        <img
+                            src={testimonial.image}
+                            alt={testimonial.name}
+                            className="w-12 h-12 rounded-full"
+                        />
+                        <div>
+                            <h4 className="text-[#0A2C8C] text-[18px] font-[700]">
+                                {testimonial.name}
+                            </h4>
+                            <div className="flex items-center gap-2">
+                                <img
+                                    src={testimonial.platformIcon}
+                                    alt={testimonial.platform}
+                                    className="h-4"
+                                />
+                                <span className="text-[#666666] text-[14px]">
+                                    {testimonial.platform}
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -195,14 +220,14 @@ const Testimonials = () => {
     );
 
     return (
-        <section className="py-24 bg-white">
+        <section className="py-24 bg-[#ffffff]">
             <div className="container_fluid">
                 {/* Header */}
-                <div className="text-center mb-16">
-                    <span className="text-[#0066FF] uppercase text-sm font-medium mb-4 block">
+                <div className="text-center mb-14">
+                    <span className="text-[#0C89FF] uppercase text-[16px] tracking-[0.2em] font-[600] mb-4 block">
                         CLIENT REVIEWS
                     </span>
-                    <h2 className="text-[#000033] text-4xl font-bold mb-6">
+                    <h2 className="text-[#001246] text-[48px] font-[700]">
                         Our Proud Clients
                     </h2>
                 </div>
@@ -211,7 +236,7 @@ const Testimonials = () => {
                 <div className="relative overflow-hidden">
                     {/* First Row */}
                     <div
-                        className="flex mb-8 transition-transform duration-500 ease-in-out"
+                        className="flex transition-transform duration-500 ease-in-out"
                         style={{
                             transform: showNavigation ? `translateX(-${firstRowIndex * 33.33}%)` : 'translateX(0)',
                         }}

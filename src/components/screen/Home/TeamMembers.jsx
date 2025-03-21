@@ -1,5 +1,9 @@
 import { useState } from "react";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
+import member1 from '../../../assets/images/team-member/member1.svg';
+import member2 from '../../../assets/images/team-member/member2.svg';
+import member3 from '../../../assets/images/team-member/member3.svg';
+import member4 from '../../../assets/images/team-member/member4.svg';
 
 const TeamMembers = () => {
     const [startIndex, setStartIndex] = useState(0);
@@ -11,49 +15,49 @@ const TeamMembers = () => {
             id: 1,
             name: "Mr Anik",
             position: "Backend Developer",
-            image: "/assets/images/team/member1.jpg"
+            image: member1
         },
         {
             id: 2,
             name: "Mr Shahed",
             position: "Frontend Developer",
-            image: "/assets/images/team/member2.jpg"
+            image: member2
         },
         {
             id: 3,
             name: "Mr Mainul Islam",
             position: "SEO Expert",
-            image: "/assets/images/team/member3.jpg"
+            image: member3
         },
         {
             id: 4,
             name: "Mr Hasib",
             position: "Content Writer",
-            image: "/assets/images/team/member4.jpg"
+            image: member4
         },
         {
             id: 5,
             name: "Mr Rakib",
             position: "UI/UX Designer",
-            image: "/assets/images/team/member5.jpg"
+            image: member1
         },
         {
             id: 6,
             name: "Mr Siam",
             position: "Digital Marketer",
-            image: "/assets/images/team/member6.jpg"
+            image: member2
         },
         {
             id: 7,
             name: "Mr Rony",
             position: "Project Manager",
-            image: "/assets/images/team/member7.jpg"
+            image: member3
         },
         {
             id: 8,
             name: "Mr Sakib",
             position: "Full Stack Developer",
-            image: "/assets/images/team/member8.jpg"
+            image: member4
         }
     ];
 
@@ -88,7 +92,7 @@ const TeamMembers = () => {
     const canScrollPrev = startIndex > 0;
 
     return (
-        <section className="py-24 bg-white">
+        <section className="pt-24 pb-[138px] bg-white">
             <div className="container_fluid">
                 {/* Header */}
                 <div className="text-center mb-16">
@@ -103,7 +107,7 @@ const TeamMembers = () => {
                 {/* Team Members Slider */}
                 <div className="relative overflow-hidden px-4">
                     <div
-                        className="flex gap-6 transition-transform duration-500 ease-in-out"
+                        className="flex gap-[1px] transition-transform duration-500 ease-in-out"
                         style={{
                             transform: showNavigation ? `translateX(-${startIndex * 25}%)` : 'translateX(0)',
                         }}
