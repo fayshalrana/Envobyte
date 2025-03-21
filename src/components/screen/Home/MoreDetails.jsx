@@ -33,7 +33,7 @@ const MoreDetails = () => {
     return (
         <section className="pt-8 sm:pt-12 lg:pt-16 pb-12 sm:pb-16 lg:pb-[91px] bg-gradient-to-b from-white to-blue-50 relative">
             {/* Overlay Images */}
-            <div className="absolute bottom-[-165px] sm:bottom-[-250px] lg:bottom-[-330px] left-0 right-0 w-full pointer-events-none z-0">
+            <div className="absolute bottom-[-165px] sm:bottom-[-250px] lg:bottom-[-270px] left-0 right-0 w-full pointer-events-none z-0">
                 <img
                     src={overlayOne}
                     alt=""
@@ -42,7 +42,7 @@ const MoreDetails = () => {
                 <img
                     src={overlayTwo}
                     alt=""
-                    className="w-full absolute bottom-[-100px] sm:bottom-[-150px] lg:bottom-[-200px] left-0 -translate-y-[42px] sm:-translate-y-[65px] lg:-translate-y-[85px]"
+                    className="w-full absolute bottom-[-100px] sm:bottom-[-150px] lg:bottom-[-100px] left-0 -translate-y-[42px] sm:-translate-y-[65px] lg:-translate-y-[85px]"
                 />
             </div>
 

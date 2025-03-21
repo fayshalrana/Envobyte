@@ -36,7 +36,7 @@ const WorkProcess = () => {
             <div className="absolute inset-0 bg-[#001C6C] opacity-50"></div>
 
             {/* Vertical Text - Hidden on mobile */}
-            <div className="hidden lg:flex absolute right-[9rem] top-[30%] -translate-y-1/2 -rotate-90 origin-center z-10 justify-center items-center row-reverse gap-2">
+            <div className="hidden lg:flex absolute right-[9rem] top-[30%] -translate-y-1/2 -rotate-90 origin-center z-10 justify-center items-center flex-row-reverse gap-2">
                 <span className="text-white/50 tracking-[0.2em] uppercase text-sm">
                     Project In Steps
                 </span>

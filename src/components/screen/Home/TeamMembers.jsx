@@ -125,7 +125,7 @@ const TeamMembers = () => {
                 {/* Team Members Slider */}
                 <div className="relative overflow-hidden">
                     <div
-                        className="flex gap-4 sm:gap-6 transition-transform duration-500 ease-in-out"
+                        className="flex transition-transform duration-500 ease-in-out gap-[1px]"
                         style={{
                             transform: showNavigation ? `translateX(-${startIndex * (100 / itemsPerView)}%)` : 'translateX(0)',
                         }}
@@ -137,9 +137,9 @@ const TeamMembers = () => {
                                     itemsPerView === 3 ? 'w-1/3' :
                                         itemsPerView === 2 ? 'w-1/2' :
                                             'w-full'
-                                    } flex-shrink-0 px-0 sm:px-2`}
+                                    } flex-shrink-0 px-0`}
                             >
-                                <div className="group relative overflow-hidden rounded-lg shadow-lg">
+                                <div className="group relative overflow-hidden shadow-lg">
                                     {/* Image */}
                                     <div className="aspect-[3/4] overflow-hidden">
                                         <img

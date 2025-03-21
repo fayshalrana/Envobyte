@@ -5,7 +5,7 @@ import bottomOverlay from '../../../assets/images/section-bottom-overly.svg';
 import domain from '../../../assets/icons/heroIcon.svg'
 import star from '../../../assets/icons/heroIcon1.svg'
 import user from '../../../assets/icons/heroIcon2.svg'
-import users from '../../../assets/icons/heroIcon3.svg'
+import like from '../../../assets/icons/like.svg'
 
 const Hero = () => {
   const stats = [
@@ -15,12 +15,12 @@ const Hero = () => {
       label: "Websites build",
     },
     {
-      icon: star,
+      icon: like,
       count: "97%",
       label: "Client satisfaction",
     },
     {
-      icon: users,
+      icon: star,
       count: "25+",
       label: "Team members",
     },
